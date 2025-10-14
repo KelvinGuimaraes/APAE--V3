@@ -8,10 +8,6 @@ O foco principal do projeto é a construção de **jogos educativos e acessívei
 
 ## 🎯 Objetivos
 
-- Criar um ambiente lúdico e interativo que auxilie o desenvolvimento cognitivo de crianças com TEA.
-- Aplicar conceitos de acessibilidade, usabilidade e design responsivo em produtos reais.
-- Estimular a criatividade, o trabalho em equipe e o uso de metodologias ágeis.
-
 ---
 
 ## 🛠️ Tecnologias Utilizadas
@@ -34,7 +30,7 @@ O foco principal do projeto é a construção de **jogos educativos e acessívei
 
 Este projeto foi desenvolvido sob orientação do professor:
 
-- **Prof. Kayo Monteiro** — Laboratório de Transformação Digital  
+- **** — Laboratório de Transformação Digital  
   *Cursos de Análise e Desenvolvimento de Sistemas*
   *e Ciência da Computação*  
   **UNIFAVIP Wyden — Centro Universitário UniFavip | Wyden**
