@@ -1,0 +1,108 @@
+.main-cards-soletrando { /*SOLETRANDO*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto; /* Centraliza horizontalmente */
+  margin-left: 670px;
+  height: 250px;
+  width: 289px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+/* Botões de letras: aparência padrão */
+.letra-btn {
+  background-color: #73b369;
+  color: #fff; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0.6rem 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Estado desativado (feedback visual + cursor) */
+.letra-btn.disabled {
+  opacity: 0.5;
+  transform: scale(0.95);
+  cursor: not-allowed;
+}
+
+/* Estado de foco para teclado/acessibilidade */
+.letra-btn:focus {
+  outline: 2px solid #4caf50;
+  outline-offset: 2px;
+}
+
+/* Hover com aumento visual */
+.letra-btn:hover:not(.disabled) {
+  background-color: #8eaf89;
+  transform: scale(1.1);
+}
+
+/* Novo: feedback de clique ativo */
+.letra-btn:active:not(.disabled) {
+  transform: scale(0.95);
+  background-color: #5e9e63;
+}
+
+/* Contêiner geral do jogo mais responsivo */
+.soletrando-container {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Largura total do contêiner */
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  margin-top: -10rem;
+}
+
+/* Contêiner dos botões de letras */
+.soletrando-letras {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espaço entre os botões */
+  margin-top: 20px;
+}
+
+/* Texto de feedback (resposta correta ou errada) */
+.feedback {
+  margin-top: 30px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* Cor e estilo do feedback correto */
+.feedback.correto {
+  color: #4caf50;
+  font-weight: bold;
+  animation: pulse 0.5s ease; /* Animação opcional */
+}
+
+/* Cor e estilo do feedback errado */
+.feedback.errado {
+  color: #ff0000;
+  font-weight: bold;
+  animation: pulse 0.5s ease; /* Animação opcional */
+}
+
+/* Animação visual para feedback */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.card-img {
+ display: block;
+  height: 110%; /* Faz a imagem ocupar toda a altura do card */
+  width: 100%; /* Faz a imagem ocupar toda a largura do card */
+  object-fit: cover; /* Garante que a imagem se ajuste sem distorção */
+  border-radius: 15px; /* Mantém o arredondamento */
+  box-shadow: #73b369 0px 4px 30px;
+  cursor: pointer;
+  overflow: hidden;
+}

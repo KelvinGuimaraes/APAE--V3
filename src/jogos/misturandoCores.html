@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apae Jogos</title>
+    <link rel="stylesheet" href="../../reset.css" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="../images/APAE LOGO.png" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="btn-jogos-top">
+        <a href="../../index.html" class="btn-jogos">Voltar</a>
+      </div>
+      <div class="container">
+        <a href="../../index.html"
+          ><img src="../images/logo apae caruaru.svg" alt="Logo da Apae"
+        /></a>
+      </div>
+      <div class="row">
+        <div class="apoio">
+          <div>
+            <img
+              class="apoio-img apoio1"
+              src="../images/UNIFAVIP TAGLINE - VERMELHO E ROXO.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="apoio-img apoio2"
+              src="../images/logoROXOeVERMELHO.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="main-cards-cores">
+        <div class="card amarelo" id="B" onclick="B()">
+          <div class="card-content">
+            <p>AMARELO</p>
+          </div>
+        </div>
+        <div class="card azul" id="A" onclick="A()">
+          <div class="card-content">
+            <p>azul</p>
+          </div>
+        </div>
+        <div class="card vermelho" id="C" onclick="C()">
+          <div class="card-content">
+            <p>VERMELHO</p>
+          </div>
+        </div>
+
+        <div class="card branco" id="resultado" onclick="resultado()">
+          <div class="card-content">
+            <p>resultado</p>
+          </div>
+        </div>
+
+        <button id="reset" class="reset" onclick="reset()">🧹LIMPAR</button>
+      </div>
+    </div>
+
+    <audio id="amarelo" src="../audio/cores/amarelo.mp3"></audio>
+    <audio id="azul" src="../audio/cores/azul.mp3"></audio>
+    <audio id="vermelho" src="../audio/cores/vermelho.mp3"></audio>
+    <audio id="roxo" src="../audio/cores/roxo.mp3"></audio>
+    <audio id="verde" src="../audio/cores/verde.mp3"></audio>
+    <audio id="laranja" src="../audio/cores/laranja.mp3"></audio>
+
+    <div class="footer">
+      <ul class="footer-sections">
+        <div class="footer-sections-separation">
+          <a draggable="false" href="../jogos/calculadora.html">
+            <li class="section NECESSIDADES"><p>Calculadora</p></li>
+          </a>
+          <a draggable="false" href="../jogos/soletrando.html">
+            <li class="section CORES"><p>Soletrando</p></li>
+          </a>
+          <a draggable="false" href="../jogos/misturandoCores.html">
+            <li class="section NUMEROS"><p>Misturando Cores</p></li>
+          </a>
+          <a draggable="false" href="../jogos/adivinhaAnimais.html">
+            <li class="section ANIMAIS"><p>Adivinhação</p></li>
+          </a>
+          <a draggable="false" href="../jogos/memoria.html">
+            <li class="section JOGOS"><p>Memória</p></li>
+          </a>
+        </div>
+      </ul>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../../src/js/misturandoCores.js"></script>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apae Jogos</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="./src/images/APAE LOGO.png" />
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="btn-jogos-top">
+        <a href="/index.html" class="btn-jogos">Voltar</a>
+      </div>
+      <div class="container">
+        <a href="/index.html"
+          ><img src="./src/images/logo apae caruaru.svg" alt="Logo da Apae" />
+        </a>
+      </div>
+      <div class="row">
+        <div class="apoio">
+          <div>
+            <img
+              class="apoio-img apoio1"
+              src="./src/images/UNIFAVIP TAGLINE - VERMELHO E ROXO.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="apoio-img apoio2"
+              src="./src/images/logoROXOeVERMELHO.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="main-cards-necessidades">
+        <div class="card calculadora">
+          <div class="card-figure">
+            <a href="./src/jogos/calculadora.html">
+              <img
+                class="card_img calculadora"
+                src="./src/images/jogos/calculadora.jpeg"
+                alt="calculadora"
+              />
+              <img
+                class="audio-verde-img"
+                src="./src/images/audio-verde.png"
+                alt="Ouvir nome do jogo: Calculadora"
+              />
+            </a>
+            
+          </div>
+          <div class="card-content">
+            <p>CALCULADORA</p>
+          </div>
+          <audio id="calculadora_player">
+            <source src="./src/audio/jogos/calculadora.mp3" type="audio/mp3" />
+          </audio>
+        </div>
+
+        <div class="card soletrando">
+          <div class="card-figure">
+            <a href="./src/jogos/soletrando.html">
+              <img
+                class="card_img soletrando"
+                src="./src/images/jogos/soletrando.jpeg"
+                alt="Soletrando"
+              />
+            </a>
+            <img
+              class="audio-verde-img"
+              src="./src/images/audio-verde.png"
+              alt="Ouvir nome do jogo: Soletrando"
+            />
+          </div>
+          <div class="card-content">
+            <p>SOLETRANDO</p>
+          </div>
+          <audio id="soletrando_player">
+            <source src="./src/audio/jogos/soletrando.mp3" type="audio/mp3" />
+          </audio>
+        </div>
+
+        <div class="card misturando-cores">
+          <div class="card-figure">
+            <a href="./src/jogos/misturandoCores.html">
+              <img
+                class="card_img misturando_cores"
+                src="./src/images/jogos/misturandoCores.jpeg"
+                alt="Misturando Cores"
+              />
+            </a>
+            <img
+              class="audio-verde-img"
+              src="./src/images/audio-verde.png"
+              alt="Ouvir nome do jogo: Misturando Cores"
+            />
+          </div>
+          <div class="card-content">
+            <p>MISTURANDO CORES</p>
+          </div>
+          <audio id="misturando_cores_player">
+            <source
+              src="./src/audio/jogos/misturandoCores.mp3"
+              type="audio/mp3"
+            />
+          </audio>
+        </div>
+
+        <div class="card adivinhacao">
+          <div class="card-figure">
+            <a href="./src/jogos/adivinhaAnimais.html">
+              <img
+                class="card_img adivinhacao"
+                src="./src/images/jogos/adivinhacao.jpeg"
+                alt="Adivinhação"
+              />
+            </a>
+            <img
+              class="audio-verde-img"
+              src="./src/images/audio-verde.png"
+              alt="Ouvir nome do jogo: Adivinhação"
+            />
+          </div>
+          <div class="card-content">
+            <p>ADIVINHAÇÃO</p>
+          </div>
+          <audio id="adivinhacao_player">
+            <source src="./src/audio/jogos/adicinhacao.mp3" type="audio/mp3" />
+          </audio>
+        </div>
+
+        <div class="card memoria">
+          <div class="card-figure">
+            <a href="./src/jogos/memoria.html">
+              <img
+                class="card_img memoria"
+                src="./src/images/jogos/memoria.jpeg"
+                alt="memoria"
+              />
+            </a>
+            <img
+              class="audio-verde-img"
+              src="./src/images/audio-verde.png"
+              alt="Ouvir nome do jogo: Memória"
+            />
+          </div>
+          <div class="card-content">
+            <p>MEMÓRIA</p>
+          </div>
+          <audio id="memoria_player">
+            <source src="./src/audio/jogos/memoria.mp3" type="audio/mp3" />
+          </audio>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./src/js/jogos.js"></script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+/* Container geral da página do jogo */
+.adivinha-container {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center; 
+  min-height: 50vh; /* Altura mínima para centralizar na tela */
+  padding: 2rem; /* Espaçamento interno */
+  font-family: "Poppins", sans-serif; 
+  text-align: center; 
+  margin: 0 auto; 
+}
+
+/* Mensagem da pergunta */
+.adivinha-pergunta {
+  font-size: 2.5rem; 
+  color: black; 
+  font-weight: 600; 
+  margin-bottom: 1.5rem; 
+}
+
+/* Container dos cards de animais */
+#items-container {
+  max-width: 1500px; /* Aumenta largura máxima para caber mais cards centralizados */
+  width: 100%;
+  display: flex; 
+  justify-content: center; /* Centraliza os cards na linha */
+  gap: 1.5rem; 
+  align-items: center;
+  margin: 0 auto; 
+  padding: 1rem 0; 
+}
+
+/* Card individual do animal */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 170px;
+  width: 170px;
+  border-radius: 15px;
+  box-shadow: #73b369 0px 4px 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease; /* Transição suave para o efeito de zoom */
+}
+
+.card img {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; /* Cobre todo o card sem distorcer a imagem */
+  display: block; /* Remove espaço abaixo da imagem */
+  border-radius: 15px; 
+}
+
+.card:hover,
+.card:focus {
+  transform: scale(1.1); 
+  outline: none;
+}
+
+/* Feedback */
+#adivinha-feedback {
+  margin-top: 1.5rem; 
+  font-size: 1.5rem; 
+  font-weight: bold; 
+}
+
+.correto {
+  color: #4caf50;
+  animation: pulse 0.5s ease;
+}
+
+.errado {
+  color: #f44336;
+  animation: shake 0.3s ease; 
+}
+
+/* Animações */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #items-container {
+    gap: 0.5rem; /* Diminui espaço entre os cards */
+  }
+  .card {
+    width: 80px; /* Diminui largura do card */
+    height: 80px; /* Diminui altura do card */
+  }
+}

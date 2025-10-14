@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apae Jogos</title>
+    <link rel="stylesheet" href="../../reset.css" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../styles/calculadora.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="../images/APAE LOGO.png" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="btn-jogos-top">
+        <a href="../../index.html" class="btn-jogos">Voltar</a>
+      </div>
+      <div class="container">
+        <a href="../../index.html"
+          ><img src="../images/logo apae caruaru.svg" alt="Logo da Apae"
+        /></a>
+      </div>
+      <div class="row">
+        <div class="apoio">
+          <div>
+            <img
+              class="apoio-img apoio1"
+              src="../images/UNIFAVIP TAGLINE - VERMELHO E ROXO.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="apoio-img apoio2"
+              src="../images/logoROXOeVERMELHO.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calculadora-container">
+      <div class="main-calculadora" id="calculadora">
+
+        <input class="display-calculadora" id="display" type="text" readonly />
+
+        <div class="btn-calculadora-container">
+          <button class="pushable btn-calculadora" onclick="appendToDisplay('1')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">1</span>
+            <audio id="audio_1" src="../audio/numeros/um.mp3"></audio>
+          </button>
+
+          <button class="pushable btn-calculadora" onclick="appendToDisplay('2')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">2</span>
+            <audio id="audio_2" src="../audio/numeros/dois.mp3"></audio>
+          </button>
+
+          <button class="pushable btn-calculadora" onclick="appendToDisplay('3')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">3</span>
+            <audio id="audio_3" src="../audio/numeros/tres.mp3"></audio>
+          </button>
+
+          <button class="pushable btn-calculadora red" onclick="clearDisplay()">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">C</span>
+            <audio id="audio_C" src="../audio/numeros/apagar.mp3"></audio>
+          </button>
+
+          <button class="pushable btn-calculadora" onclick="appendToDisplay('4')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">4</span>
+            <audio id="audio_4" src="../audio/numeros/quatro.mp3"></audio>
+          </button>
+
+          <button class="pushable btn-calculadora" onclick="appendToDisplay('5')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">5</span>
+            <audio id="audio_5" src="../audio/numeros/cinco.mp3"></audio>
+          </button>
+
+          <button class="pushable btn-calculadora" onclick="appendToDisplay('6')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">6</span>
+            <audio id="audio_6" src="../audio/numeros/seis.mp3"></audio>
+          </button>
+
+          <button class="pushable btn-calculadora" onclick="appendToDisplay('*')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">×</span>
+            <audio id="audio_*" src="../audio/numeros/vezes.mp3"></audio>
+          </button>
+
+          <button class="pushable btn-calculadora" onclick="appendToDisplay('7')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">7</span>
+            <audio id="audio_7" src="../audio/numeros/sete.mp3"></audio>
+          </button>
+
+          <button class="pushable btn-calculadora" onclick="appendToDisplay('8')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">8</span>
+            <audio id="audio_8" src="../audio/numeros/oito.mp3"></audio>
+          </button>
+
+          <button class="pushable btn-calculadora" onclick="appendToDisplay('9')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">9</span>
+            <audio id="audio_9" src="../audio/numeros/nove.mp3"></audio>
+          </button>
+
+          <button class="pushable btn-calculadora" onclick="appendToDisplay('/')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">÷</span>
+            <audio id="audio_/" src="../audio/numeros/dividido.mp3"></audio>
+          </button>
+
+          <button class="pushable btn-calculadora" onclick="appendToDisplay('+')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">+</span>
+            <audio id="audio_+" src="../audio/numeros/mais.mp3"></audio>
+          </button>
+
+          <button class="pushable btn-calculadora" onclick="appendToDisplay('0')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">0</span>
+            <audio id="audio_0" src="../audio/numeros/zero.mp3"></audio>
+          </button>
+
+          <button class="pushable btn-calculadora" onclick="appendToDisplay('-')">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">-</span>
+            <audio id="audio_-" src="../audio/numeros/menos.mp3"></audio>
+          </button>
+
+          <button class="pushable btn-calculadora green" onclick="calculate()">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front">=</span>
+            <audio id="audio_=" src="../audio/numeros/igual.mp3"></audio>
+          </button>
+        </div> <!-- btn-calculadora-container -->
+      </div> <!-- MAIN CALCULADORA -->
+      
+      <div class="footer">
+        <ul class="footer-sections">
+          <div class="footer-sections-separation">
+            <a draggable="false" href="../../src/jogos/calculadora.html">
+              <li class="section NECESSIDADES"><p>Calculadora</p></li>
+            </a>
+            <a draggable="false" href="../../src/jogos/soletrando.html">
+              <li class="section CORES"><p>Soletrando</p></li>
+            </a>
+            <a draggable="false" href="../../src/jogos/misturandoCores.html">
+              <li class="section NUMEROS"><p>Misturando Cores</p></li>
+            </a>
+            <a draggable="false" href="../../src/jogos/adivinhaAnimais.html">
+              <li class="section ANIMAIS"><p>Adivinhação</p></li>
+            </a>
+            <a draggable="false" href="../../src/jogos/memoria.html">
+              <li class="section JOGOS"><p>Memória</p></li>
+            </a>
+          </div>
+        </ul>
+      </div> <!-- FOOTER -->   
+    </div> <!-- CALCULADORA CONTEINER -->
+
+    <script src="../../src/js/calculadora.js"></script>
+
+  </body>
+</html>
