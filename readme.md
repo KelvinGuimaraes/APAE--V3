@@ -1,4 +1,4 @@
-# 🧩 Projeto APAE-V2 — Laboratório de Transformação Digital (UNIFAVIP Wyden)
+# 🧩 Projeto APAE-V3 — Laboratório de Transformação Digital (UNIFAVIP Wyden)
 
 Este repositório reúne os resultados do projeto **APAE-V2 (segunda versão)**, desenvolvido no âmbito do **Laboratório de Transformação Digital** da **UNIFAVIP Wyden**. A iniciativa foi criada para que alunos dos cursos de Ciência da Computação e de Análise e Desenvolvimento de Sistemas pudessem aplicar seus conhecimentos técnicos no desenvolvimento de soluções digitais com impacto social.
 
