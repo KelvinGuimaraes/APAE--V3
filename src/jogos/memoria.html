@@ -45,12 +45,24 @@
       </div>
     </div>
 
-    <main class="tabuleiro"></main>
+     <main class="tabuleiro-container">
+      <!-- Overlay inicial com botão central -->
+      <div id="start-overlay" class="start-overlay">
+        <div class="start-box">
+          <p class="name">Jogo da Memória</p>
+          <button id="btn-iniciar" class="btn-jogos">Iniciar</button>
+        </div>
+      </div>
+ 
+      <section id="mensagem-parabens" class="mensagem-parabens">
+        <p class="Parabéns">Parabéns!! Você encontrou todos os pares!</p>
+        <button id="btn-reiniciar" class="btn-jogos">Jogar Novamente</button>
+      </section>
 
-    <section id="mensagem-parabens" class="mensagem-parabens">
-      <p class="Parabéns">Parabéns!! Você encontrou todos os pares!</p>
-      <button id="btn-reiniciar">Jogar Novamente</button>
-    </section>
+      <section class="tabuleiro"></section>
+    </main>
+
+    
 
     <div class="footer">
       <ul class="footer-sections">

@@ -1,8 +1,11 @@
 const container = document.querySelector(".tabuleiro");
-const botoaReiniciar = document.querySelector("button");
+const botoaReiniciar = document.getElementById("btn-reiniciar");
+const btnIniciar = document.getElementById("btn-iniciar");
+const startOverlay = document.getElementById("start-overlay");
 let cartas;
 let primeiraCarta = "";
 let segundaCarta = "";
+let bloqueado = true; // o jogo começa travado até clicar em iniciar
 
 botoaReiniciar.addEventListener("click", () => location.reload());
 
@@ -44,13 +47,12 @@ function tocarSomSucesso() {
 }
 
 function sortearItensParaRodada(qtdPares = 12) {
-  // Embaralha o array original e pega apenas a quantidade desejada
   const itensEmbaralhados = [...items].sort(() => Math.random() - 0.5);
   return itensEmbaralhados.slice(0, qtdPares);
 }
 
 function criarCartas() {
-  container.innerHTML = ""; // Limpa o tabuleiro antes de criar novas cartas
+  container.innerHTML = "";
   let itensRodada = sortearItensParaRodada(12);
   let itemsDuplicados = [...itensRodada, ...itensRodada];
   let animais = itemsDuplicados.sort(() => Math.random() - 0.5);
@@ -70,16 +72,16 @@ criarCartas();
 
 function virarCarta() {
   cartas = document.querySelectorAll(".carta");
-
   cartas.forEach((carta) => {
     carta.addEventListener("click", () => {
+      if (bloqueado) return; // impede jogadas enquanto bloqueado
       if (carta === primeiraCarta) return;
 
-      if (primeiraCarta == "") {
+      if (primeiraCarta === "") {
         carta.classList.add("carta-virada");
         primeiraCarta = carta;
         tocarSom(primeiraCarta.getAttribute("data-carta"));
-      } else if (segundaCarta == "") {
+      } else if (segundaCarta === "") {
         carta.classList.add("carta-virada");
         segundaCarta = carta;
         tocarSom(segundaCarta.getAttribute("data-carta"));
@@ -96,7 +98,8 @@ function checarCartas() {
 
   if (primeiroAnimal === segundoAnimal && primeiraCarta !== segundaCarta) {
     tocarSomSucesso();
-
+    primeiraCarta.dataset.encontrada = "true";
+    segundaCarta.dataset.encontrada = "true";
     primeiraCarta = "";
     segundaCarta = "";
 
@@ -105,10 +108,9 @@ function checarCartas() {
       audio.play();
     }
 
-    // Verifica se todas as cartas foram encontradas
     setTimeout(() => {
       const cartasViradas = document.querySelectorAll('.carta-virada');
-      if (cartasViradas.length === 24) { // 12 pares = 24 cartas
+      if (cartasViradas.length === 24) {
         confetti({
           particleCount: 300,
           spread: 120,
@@ -117,7 +119,6 @@ function checarCartas() {
         tocarSomSucessoFinal();
         document.querySelector('.tabuleiro').style.display = 'none';
         document.getElementById('mensagem-parabens').style.display = 'block';
-        document.getElementById('btn-reiniciar').onclick = () => location.reload();
       }
     }, 400);
 
@@ -125,9 +126,60 @@ function checarCartas() {
     setTimeout(() => {
       primeiraCarta.classList.remove("carta-virada");
       segundaCarta.classList.remove("carta-virada");
-
       primeiraCarta = "";
       segundaCarta = "";
     }, 600);
   }
+}
+
+// Função auxiliar para abrir o tabuleiro (exibe a grid)
+function mostrarTabuleiro() {
+  const tabuleiro = document.querySelector(".tabuleiro");
+  if (tabuleiro) tabuleiro.classList.add("visible");
+}
+
+// Lógica do botão Iniciar: revela o tabuleiro, vira todas as cartas por 5s e depois desvira as não encontradas
+if (btnIniciar) {
+  btnIniciar.addEventListener("click", async () => {
+    // evita múltiplos cliques
+    btnIniciar.disabled = true;
+    btnIniciar.innerText = "Aguarde...";
+
+    // mostra o tabuleiro (mesmo que vazio por enquanto)
+    mostrarTabuleiro();
+
+    // remove overlay visualmente (depois de mostrar tabuleiro para evitar salto)
+    if (startOverlay) startOverlay.style.display = "none";
+
+    // garante que as cartas foram criadas e selecionadas
+    cartas = document.querySelectorAll(".carta");
+    if (!cartas || cartas.length === 0) {
+      // ainda não tem cartas — força recriar e recolher
+      criarCartas();
+      cartas = document.querySelectorAll(".carta");
+      virarCarta(); // reaplica listeners
+    }
+
+    // bloqueia interação durante pré-visualização
+    bloqueado = true;
+
+    // vira todas as cartas visíveis
+    cartas.forEach((c) => c.classList.add("carta-virada"));
+
+    // espera 5s
+    await new Promise((r) => setTimeout(r, 4000));
+
+    // desvira apenas cartas não marcadas como encontradas
+    cartas.forEach((c) => {
+      if (c.dataset.encontrada !== "true") {
+        c.classList.remove("carta-virada");
+      }
+    });
+
+    // libera jogo
+    bloqueado = false;
+    primeiraCarta = "";
+    segundaCarta = "";
+    btnIniciar.style.display = "none";
+  });
 }
