@@ -1,4 +1,4 @@
-const palavras = [
+let palavras = [
   {
     palavra: "amarelo",
     imagem: "../images/soletrando/amarelo.jpeg",
@@ -57,8 +57,14 @@ const palavras = [
   // Adicionar os outros aqui (palavras, imagens e áudios)
 ];
 
+const todasPalavras = palavras.slice(); // cópia para reiniciar o jogo completo quando necessário
+
 let indiceAtual = 0;
 let tentativa = "";
+let tentativas = 0;
+const maxTentativas = 3;
+let palavrasErradas = [];
+let retryingFailed = false;
 
 const container = document.createElement("div");
 container.classList.add("soletrando-container");
@@ -72,8 +78,13 @@ botoesContainer.classList.add("soletrando-letras");
 const tentativaTexto = document.createElement("p");
 tentativaTexto.classList.add("feedback");
 
+const tentativasInfo = document.createElement("p");
+tentativasInfo.classList.add("tentativas-info");
+tentativasInfo.style.fontWeight = "600";
+tentativasInfo.style.marginTop = "0.5rem";
+
 document.body.querySelector(".main").after(container);
-container.append(botoesContainer, tentativaTexto);
+container.append(botoesContainer, tentativasInfo, tentativaTexto);
 
 document.querySelector(".card-figure").append(imagem);
 container.append(imagem);
@@ -115,10 +126,27 @@ function iniciarRodada() {
   const botaoExistente = document.getElementById("botao-reiniciar");
   if (botaoExistente) botaoExistente.remove();
 
+  // Se acabou a lista atual
   if (indiceAtual >= palavras.length) {
+    if (!retryingFailed && palavrasErradas.length > 0) {
+      // Volta para as palavras erradas
+      palavras = palavrasErradas.slice();
+      palavrasErradas = [];
+      retryingFailed = true;
+      indiceAtual = 0;
+      tentativas = 0;
+      tentativasInfo.textContent = ""; // garantir vazio na transição para revisão
+      // Mensagem curta antes de reiniciar com as erradas
+      tentativaTexto.textContent = "Vamos revisar as palavras erradas...";
+      setTimeout(iniciarRodada, 1200);
+      return;
+    }
+
+    // Se já revisou as erradas (ou não havia erradas), finaliza
     tentativaTexto.textContent =
       "🎉 Parabéns! Você completou todas as palavras!";
     tentativaTexto.classList.add("correto");
+    tentativasInfo.textContent = ""; // Oculta o texto de tentativas no final
 
     // Som de vitória
     const somVitoria = new Audio("../audio/efeito-vitória.mp3");
@@ -164,6 +192,10 @@ function iniciarRodada() {
   }
 
   const palavraAtual = palavras[indiceAtual];
+  tentativas = 0; // zera tentativas ao iniciar palavra
+
+  tentativasInfo.textContent = `Tentativas restantes: ${maxTentativas - tentativas}`;
+  
   const audio = new Audio(palavraAtual.audioId); // TOCA O ÁUDIO DA PALAVRA
   audio.play().catch((error) => {
     console.warn("Falha ao reproduzir o áudio:", error);
@@ -219,32 +251,63 @@ function iniciarRodada() {
             const somAcerto = new Audio("../audio/efeito_acerto.mp3");
             somAcerto.play();
 
+            // se estava em lista de erradas, remove
+            const idxErr = palavrasErradas.indexOf(palavraAtual);
+            if (idxErr !== -1) palavrasErradas.splice(idxErr, 1);
+
             tentativaTexto.textContent = "✅ Correto! Próxima palavra...";
             tentativaTexto.classList.add("correto");
             indiceAtual++;
             setTimeout(iniciarRodada, 1500);
           } else {
-            // TOCA SOM DE ERRO
-            const somErro = new Audio("../audio/efeito-erro.mp3");
-            somErro.play();
+            // ERRO: aumenta contador de tentativas e decide próxima ação
+            tentativas++;
+            if (tentativas >= maxTentativas) {
+              // marca palavra como errada (se ainda não estiver) e pula
+              if (!palavrasErradas.includes(palavraAtual)) {
+                palavrasErradas.push(palavraAtual);
+              }
 
-            tentativaTexto.textContent = "❌ Tente novamente!";
-            tentativaTexto.classList.add("errado");
-            setTimeout(() => {
-              document.querySelectorAll(".letra-btn").forEach((b) => {
-                b.disabled = false;
-                b.style.opacity = "1";
-                b.style.transform = "scale(1)";
-                b.dataset.used = "false";
-              });
-              tentativa = "";
-              tentativaTexto.textContent = "";
-              tentativaTexto.className = "feedback";
+              // TOCA SOM DE ERRO
+              const somErro = new Audio("../audio/efeito-erro.mp3");
+              somErro.play();
 
-               // TOCA O ÁUDIO DA PALAVRA NOVAMENTE APÓS O ERRO
-              const audioRepetir = new Audio(palavraAtual.audioId);
-              audioRepetir.play();
-            }, 1500);
+              tentativaTexto.textContent = `❌ Errou ${tentativas} vezes. Pulando para a próxima...`;
+              tentativaTexto.classList.add("errado");
+
+              tentativasInfo.textContent = `Tentativas restantes: 0`;
+
+              setTimeout(() => {
+                indiceAtual++;
+                iniciarRodada();
+              }, 1200);
+            } else {
+              // ainda tem tentativas
+              // TOCA SOM DE ERRO
+              const somErro = new Audio("../audio/efeito-erro.mp3");
+              somErro.play();
+
+              tentativaTexto.textContent = `❌ Tente novamente! Restam ${maxTentativas - tentativas} tentativa(s).`;
+              tentativaTexto.classList.add("errado");
+
+              tentativasInfo.textContent = `Tentativas restantes: ${maxTentativas - tentativas}`;
+            
+              setTimeout(() => {
+                document.querySelectorAll(".letra-btn").forEach((b) => {
+                  b.disabled = false;
+                  b.style.opacity = "1";
+                  b.style.transform = "scale(1)";
+                  b.dataset.used = "false";
+                });
+                tentativa = "";
+                tentativaTexto.textContent = "";
+                tentativaTexto.className = "feedback";
+
+                // TOCA O ÁUDIO DA PALAVRA NOVAMENTE APÓS O ERRO
+                const audioRepetir = new Audio(palavraAtual.audioId);
+                audioRepetir.play();
+              }, 1200);
+            }
           }
         }
       }
@@ -252,10 +315,14 @@ function iniciarRodada() {
     botoesContainer.appendChild(btn);
   });
 }
+
 // Função para reiniciar o jogo
 function reiniciarJogo() {
   indiceAtual = 0;
   tentativa = "";
+  tentativas = 0;
+  palavrasErradas = [];
+  retryingFailed = false;
   const botao = document.getElementById("botao-reiniciar");
   if (botao) botao.remove();
 
@@ -263,6 +330,7 @@ function reiniciarJogo() {
   if (cardImagem) cardImagem.style.display = "block";
   imagem.style.display = "block";
 
+  palavras = todasPalavras.slice(); // repõe todas as palavras originais
   palavras.sort(() => 0.5 - Math.random());
   iniciarRodada();
 }
