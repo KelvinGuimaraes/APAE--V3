@@ -23,8 +23,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* centraliza conteúdo do main */
-  min-height: calc(100vh - 160px); /* ajuste conforme altura do header + footer */
+  justify-content: center; 
+  min-height: calc(100vh - 160px); 
 }
 
 .carta {
@@ -66,7 +66,7 @@
 /* overlay de início */
 .start-overlay{
   position: absolute;
-  inset: 0; /* ocupa toda a área do .tabuleiro-container */
+  inset: 0; 
   margin-bottom: 50px;
   display: flex;
   align-items: center;   
@@ -78,7 +78,7 @@
 /* caixa do botão */
 .start-box{
   width: 100%;
-  max-width: 480px; /* caixa centralizada com largura limitada */
+  max-width: 480px; 
   background: #fff;
   padding: 28px 36px;
   border-radius: 12px;
@@ -110,18 +110,17 @@
   grid-template-columns: repeat(6, 1fr);
   gap: 15px;
   padding: 20px;
-  justify-items: center;   /* centraliza cada célula horizontalmente */
-  place-items: center;     /* centraliza conteúdo das células vertical/horizontal */
-  align-content: center;   /* centra o conjunto de linhas verticalmente no container */
+  justify-items: center; 
+  place-items: center;     
+  align-content: center; 
   max-width: 1100px;
   margin-top: -100px;
   grid-auto-flow: row dense;
   width: 100%;
-  height: 100%;            /* ocupa toda a altura disponível do .tabuleiro-container */
+  height: 100%;            
   box-sizing: border-box;
 }
 
-/* garante que quando oculto não afete layout; visibilidade controlada por .visible */
 .tabuleiro {
   display: none;
 }

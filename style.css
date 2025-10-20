@@ -168,15 +168,15 @@ body {
 
 .main-cards-animais { /*ANIMAIS*/
   display: flex;
-  flex-wrap: wrap; /* Permite que os itens quebrem linha */
-  justify-content: center; /* Centraliza os itens horizontalmente */
-  align-items: flex-start; /* Alinha os itens no topo */
-  gap: 2rem; /* Espaçamento entre os itens */
-  margin-top: 100px; /* Espaçamento entre os botões e as imagens */
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem; 
+  margin-top: 100px; 
   column-gap: 6em;
   row-gap: 3em;
   padding: 1rem 0;
-  width: 100%; /* Garante que o contêiner ocupe toda a largura */
+  width: 100%; 
 }
 
 .main-cards-soletrando { /*SOLETRANDO*/
@@ -184,8 +184,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 2rem ; /* Centraliza horizontalmente */
-  margin-left: 670px; /* Ajuste conforme necessário */
+  margin: 2rem ;
+  margin-left: 670px; 
   height: 250px;
   width: 289px;
   border-radius: 15px;
@@ -205,7 +205,7 @@ body {
 }
 
 .card-figure {
-  display: flex; /* Ativa o Flexbox no contêiner pai */
+  display: flex; 
   align-items: center; 
   justify-content: center; 
 }
