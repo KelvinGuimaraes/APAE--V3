@@ -1,19 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apae Dashboard</title>
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="src/styles/dashboard.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="./src/images/APAE LOGO.png" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-    <h1>Bem-vindo, <span id="usuarioNome"></span>!</h1>
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar expanded" aria-hidden="false">
+        <div class="sidebar-top">
+            <button id="sidebar-close" class="btn-icon arrow" aria-label="Fechar menu">›</button>
+        </div>
 
-    <script>
-        const nome = sessionStorage.getItem("usuarioNome");
-        document.getElementById("usuarioNome").textContent = nome || "Visitante";
-    </script>
+        <nav class="sidebar-nav" role="navigation" aria-label="Menu principal">
+            <a href="dashboard.html" class="sidebar-link"><span class="icon">🏠</span><span
+                    class="label">Início</span></a>
+            <a href="login.html" class="sidebar-link"><span class="icon">🔐</span><span class="label">Iniciar
+                    sessão</span></a>
+            <a href="perfil.html" class="sidebar-link"><span class="icon">👤</span><span class="label">Perfil</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <small>APAE</small>
+        </div>
+    </aside>
+
+    <!-- Header principal -->
+    <header>
+        <div class="header">
+            <div class="btn-jogos-top">
+                <button id="btnSair" class="btn-sair">Sair</button>
+            </div>
+
+            <div class="logo-container" id="logoToggle" tabindex="0" role="button" aria-label="Abrir menu lateral">
+                <a href="dashboard.html">
+                    <img src="./src/images/logo apae caruaru.svg" alt="Logo da Apae" id="apaeLogo" />
+                </a>
+            </div>
+
+            <div class="row">
+                <div class="apoio">
+                    <div>
+                        <img class="apoio-img apoio1" src="./src/images/UNIFAVIP TAGLINE - VERMELHO E ROXO.png"
+                            alt="Apoio 1" />
+                    </div>
+                    <div>
+                        <img class="apoio-img apoio2" src="./src/images/logoROXOeVERMELHO.png" alt="Apoio 2" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header menor com nome da criança -->
+    <section class="child-header">
+        <h2>👋 Olá, <span id="nomeCrianca">Maria Clara</span>!</h2>
+    </section>
+
+    <!-- Main -->
+    <main class="main dashboard-container">
+        <div class="left">
+            <h2>📊 Desempenho</h2>
+            <canvas id="chartDesempenho"></canvas>
+            <div class="chart-legend">
+                <div><span class="dot green"></span> Acertos</div>
+                <div><span class="dot red"></span> Erros</div>
+                <div><span class="dot orange"></span> Tentativas</div>
+            </div>
+        </div>
+
+        <div class="right">
+            <h3>🚀 Pronto para continuar?</h3>
+            <p>Inicie aqui a sua próxima sessão e continue aprendendo de forma divertida!</p>
+            <button class="btn-iniciar">Iniciar sessão</button>
+        </div>
+    </main>
+
+    <div id="modalSair" class="modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <h2>Confirmar saída</h2>
+            <p>Deseja realmente sair?</p>
+            <div class="modal-actions">
+                <button id="confirmSair" class="btn btn-danger">Sair</button>
+                <button id="cancelSair" class="btn btn-secondary">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <script src="./src/js/dashboard.js"></script>
 
 </body>
 
