@@ -44,28 +44,44 @@ body {
 }
 
 /* Botão sair */
-.btn-jogos-top {
+/* Botão sair (isolado da classe .btn global) */
+.btn-sair-dashboard {
+  background: linear-gradient(90deg, #e53e3e, #c53030);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(229, 62, 62, 0.3);
+  transition: all 0.25s ease;
   position: absolute;
   top: 28px;
   right: 40px;
   z-index: 999;
 }
 
-.btn-sair {
-  background-color: #e53e3e;
-  color: white;
-  padding: 10px 22px;
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s ease;
+/* Efeito hover */
+.btn-sair-dashboard:hover {
+  background: linear-gradient(90deg, #c53030, #9b2c2c);
+  transform: scale(1.05);
+  box-shadow: 0 3px 8px rgba(229, 62, 62, 0.4);
 }
 
-.btn-sair:hover {
-  background-color: #b32b2b;
+/* Efeito de clique */
+.btn-sair-dashboard:active {
+  transform: scale(0.98);
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .btn-sair-dashboard {
+    padding: 8px 14px;
+    font-size: 14px;
+    right: 20px;
+  }
 }
 
 /* ================= HEADER MENOR (NOME DA CRIANÇA) ================= */
