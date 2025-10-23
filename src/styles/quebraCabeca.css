@@ -5,6 +5,7 @@
     justify-content: center;
     margin-top: 40px;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
 .quebra-cabeca-link img {
