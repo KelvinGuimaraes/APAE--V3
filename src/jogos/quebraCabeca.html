@@ -6,7 +6,7 @@
     <title>Apae Jogos</title>
     <link rel="stylesheet" href="../../reset.css" />
     <link rel="stylesheet" href="../../style.css" />
-    <link rel="stylesheet" href="../styles/labirinto.css" />
+    <link rel="stylesheet" href="../styles/quebraCabeca.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -45,50 +45,17 @@
       </div>
     </div>
 
-    <div class="labirinto-container">
+    <div class="encaixeFormas-container">
+        
+        <div class="encaixe">
 
-      <div class="mensagem-container" id="mensagem-container">
-        <div class="mensagem-box" id="mensagem">
-          <h1>Parabéns!</h1>
-          <p>Você completou o labirinto!</p>
-          <p id="pontos"></p>
-          <input type="button" id="reiniciarBtn" onclick="toggleVisibility('mensagem-container'); makeMaze();" value="Jogar Novamente">
         </div>
-      </div>
 
-      <div class="menu-labirinto" id="menu-labirinto">
-        <div class="dificuldade-input">
-          <label>
-            <input value="value-1" name="value-radio" id="value-10" type="radio" checked/>
-            <span>Fácil</span>
-          </label>
-          <label>
-            <input value="value-2" name="value-radio" id="value-15" type="radio" />
-            <span>Médio</span>
-          </label>
-          <label>
-            <input value="value-3" name="value-radio" id="value-25" type="radio" />
-            <span>Difícil</span>
-          </label>
-          <label>
-            <input value="value-4" name="value-radio" id="value-38" type="radio" />
-            <span>Extremo</span>
-          </label>
-          <span class="selection"></span>
+        <div class="formas">
+
         </div>
-        <input id="iniciar-labirinto" type="button" onclick="makeMaze()" value="Iniciar">
-      </div>
+        <h1>Tentativas <span id="tentativas">0</span></h1>
 
-      <div class="view" id="view">
-        <div class="labirinto" id="labirinto">
-          <canvas id="labirintoCanvas" class="border" width="1100" height="1100"></canvas>
-        </div>
-      </div>
-
-      <div class="instrucao">
-        <h1>Instruções</h1>
-        <p>Use as setas do teclado para mover o ratinho pelo labirinto até o queijo.</p>
-      </div>
     </div>
 
       <div class="footer">
@@ -116,10 +83,7 @@
         </ul>
       </div> <!-- FOOTER -->   
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
-
-    <script src="../../src/js/labirinto.js"></script>
+    <script src="../../src/js/quebraCabeca.js"></script>
 
   </body>
 </html>
