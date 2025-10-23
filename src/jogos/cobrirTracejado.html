@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cobrir o Tracejado</title>
+  <link rel="stylesheet" href="../../reset.css" />
+  <link rel="stylesheet" href="../styles/cobrirTracejado.css" />
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../src/css/cobrirTracejado.css" />
+  <link rel="icon" type="image/x-icon" href="../images/APAE LOGO.png" />
+</head>
+
+<body>
+  <div class="header">
+    <div class="btn-jogos-top">
+      <a href="../../jogos.html" class="btn-jogos">Voltar</a>
+    </div>
+    <div class="container">
+      <a href="../../dashboard.html">
+        <img src="../images/logo apae caruaru.svg" alt="Logo da Apae" />
+      </a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div id="menu-inicial">
+      <button id="btnIniciar">▶️ Iniciar</button>
+    </div>
+
+    <div id="jogo" class="tracejado-container" style="display: none">
+      <p id="tentativas" class="info-tentativas">Você tem 3 tentativas</p>
+      <canvas id="canvasTracejado" width="400" height="400"></canvas>
+
+      <div class="botoes">
+        <button id="reset"> Limpar</button>
+        <button id="finalizar"> Finalizar</button>
+        <button id="sair">Sair</button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="sucesso" src="../audio/sucesso.mp3"></audio>
+
+  <div class="footer">
+    <ul class="footer-sections">
+      <div class="footer-sections-separation">
+        <a draggable="false" href="../jogos/calculadora.html">
+          <li class="section NECESSIDADES">
+            <p>Calculadora</p>
+          </li>
+        </a>
+        <a draggable="false" href="../jogos/soletrando.html">
+          <li class="section CORES">
+            <p>Soletrando</p>
+          </li>
+        </a>
+        <a draggable="false" href="../jogos/misturandoCores.html">
+          <li class="section NUMEROS">
+            <p>Misturando Cores</p>
+          </li>
+        </a>
+        <a draggable="false" href="../jogos/adivinhaAnimais.html">
+          <li class="section ANIMAIS">
+            <p>Adivinhação</p>
+          </li>
+        </a>
+        <a draggable="false" href="../jogos/memoria.html">
+          <li class="section JOGOS">
+            <p>Memória</p>
+          </li>
+        </a>
+      </div>
+    </ul>
+  </div>
+
+  <script src="../../src/js/cobrirTracejado.js"></script>
+</body>
+
+</html>

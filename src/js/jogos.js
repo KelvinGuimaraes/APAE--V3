@@ -56,6 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
         selector: ".card.memoria a",
         audioId: "memoria_player",
       },
+      {
+        selector: ".card.cobrirTracejado a",
+        audioId: "cobrirTracejado_player",
+      },
     ];
 
     cardsMap.forEach((item) => {
@@ -97,7 +101,14 @@ document.addEventListener("DOMContentLoaded", () => {
         audioId: "adivinhacao_player",
         imgClass: ".card.adivinhacao .audio-verde-img",
       },
-      { audioId: "memoria_player", imgClass: ".card.memoria .audio-verde-img" },
+      { 
+        audioId: "memoria_player", 
+        imgClass: ".card.memoria .audio-verde-img" 
+      },
+      { 
+        audioId: "cobrirTracejado_player", 
+        imgClass: ".card.cobrirTracejado .audio-verde-img" 
+      },
     ];
 
     audioImageMap.forEach((pair) => {
