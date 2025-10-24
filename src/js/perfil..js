@@ -119,3 +119,19 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Dados salvos com sucesso.');
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sidebar = document.getElementById("sidebar");
+  const toggleMenu = document.getElementById("toggleMenu");
+
+  toggleMenu.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+  });
+
+  const btnSair = document.getElementById("btnSair");
+  btnSair.addEventListener("click", () => {
+    if (confirm("Deseja sair?")) {
+      window.location.href = "index.html";
+    }
+  });
+});

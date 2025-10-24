@@ -1,422 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apae - Perfil</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apae - Perfil</title>
 
-    <link rel="stylesheet" href="src/styles/perfil.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="./src/images/APAE LOGO.png" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-  <style>
-
-    :root {
-      --sidebar-width: 220px;
-      --sidebar-collapsed: 72px;
-      --accent: #4caf50;
-      --accent-weak: #c7f5d4;
-      --green: #22c55e;
-      --bg: #fffaf9;
-      --card-border: 12px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background-color: var(--bg);
-    }
-
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: var(--sidebar-width);
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      transition: width 0.3s ease;
-      z-index: 1000;
-    }
-
-    .sidebar-top {
-      display: flex;
-      justify-content: flex-end;
-      padding: 1rem;
-    }
-
-    .btn-icon {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--accent);
-    }
-
-    .sidebar-nav {
-      display: flex;
-      flex-direction: column;
-      padding: 1rem 0;
-    }
-
-    .sidebar-link {
-      display: flex;
-      align-items: center;
-      padding: 0.8rem 1.5rem;
-      text-decoration: none;
-      color: #333;
-      transition: background-color 0.2s;
-    }
-
-    .sidebar-link:hover {
-      background-color: #f5f5f5;
-    }
-
-    .icon {
-      margin-right: 1rem;
-      font-size: 1.2rem;
-    }
-
-    .sidebar-footer {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      padding: 1rem;
-      text-align: center;
-      color: #666;
-    }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #fff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      margin-left: var(--sidebar-width);
-    }
-
-    .logout-container {
-      flex: 1;
-    }
-
-    .btn-sair-dashboard {
-      background-color: var(--accent);
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .logo-container {
-      flex: 1;
-      text-align: center;
-    }
-
-    .logo-container img {
-      max-height: 60px;
-    }
-
-    .row {
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .apoio {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .apoio-img {
-      max-height: 40px;
-    }
-
-    .child-header {
-      margin-left: var(--sidebar-width);
-      padding: 1rem;
-      background: transparent;
-    }
-
-    main.container {
-      display: flex;
-      gap: 2rem;
-      padding: 1.5rem;
-      margin-left: var(--sidebar-width);
-    }
-
-    .left-panel {
-      width: 220px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 999px;
-      border: 12px solid var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 54px;
-      background: #fff;
-    }
-
-    .child-name {
-      font-weight: 800;
-      color: var(--accent);
-      font-size: 20px;
-      margin-top: 6px;
-    }
-
-    .right-panel {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 1.6rem;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 1.2rem;
-      border: 6px solid var(--accent-weak);
-      position: relative;
-    }
-
-    .card.inner-border {
-      border-color: var(--accent);
-    }
-
-    .card h2 {
-      margin: 0 0 10px 0;
-      color: var(--accent);
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    .fields {
-      display: flex;
-      gap: 1.2rem;
-    }
-
-    .field-col {
-      flex: 1;
-    }
-
-    label {
-      display: block;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    input[type=text],
-    input[type=number],
-    input[type=password],
-    textarea {
-      width: 100%;
-      padding: .6rem;
-      border: 1px solid #eee;
-      border-radius: 8px;
-      font-size: 1rem;
-      background-color: #f9f9f9;
-    }
-
-    input:disabled,
-    textarea:disabled {
-      background-color: #f0f0f0;
-      color: #555;
-    }
-
-    .actions {
-      display: flex;
-      gap: .6rem;
-      justify-content: flex-end;
-      margin-top: .8rem;
-    }
-
-    .btn {
-      padding: .6rem 1rem;
-      border-radius: 8px;
-      border: none;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .btn-secondary {
-      background: #edf2f7;
-      color: #333;
-    }
-
-    .history-card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 1rem;
-      border: 6px solid var(--accent-weak);
-    }
-
-    .history-title {
-      color: var(--accent);
-      text-align: center;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
-
-    .history-grid {
-      display: flex;
-      gap: 1.2rem;
-      justify-content: space-between;
-      padding: 0 1rem;
-    }
-
-    .history-item {
-      width: 140px;
-      height: 110px;
-      border-radius: 14px;
-      background: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 22px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, .06);
-    }
-
-    .history-stats {
-      margin-top: 1rem;
-      padding: 0 1rem;
-      display: flex;
-      gap: 1.2rem;
-      align-items: center;
-    }
-
-    .acertos {
-      color: var(--green);
-      font-weight: 800;
-    }
-
-    .erros {
-      color: var(--accent);
-      font-weight: 800;
-    }
-
-    @media (max-width: 900px) {
-      .sidebar {
-        width: var(--sidebar-collapsed);
-      }
-      
-      .header {
-        margin-left: var(--sidebar-collapsed);
-      }
-      
-      main.container {
-        margin-left: var(--sidebar-collapsed);
-      }
-      
-      .child-header {
-        margin-left: var(--sidebar-collapsed);
-      }
-    }
-
-    @media (max-width: 768px) {
-      main.container {
-        flex-direction: column;
-        margin-left: 0;
-      }
-
-      .left-panel {
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        width: 100%;
-      }
-      
-      .header {
-        margin-left: 0;
-        flex-direction: column;
-        gap: 1rem;
-      }
-      
-      .sidebar {
-        width: 0;
-        overflow: hidden;
-      }
-      
-      .sidebar.expanded {
-        width: var(--sidebar-width);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="src/styles/perfil.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="./src/images/APAE LOGO.png" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-    <!-- Sidebar -->
-    <aside id="sidebar" class="sidebar expanded" aria-hidden="false">
-        <div class="sidebar-top">
-            <button id="sidebar-close" class="btn-icon arrow" aria-label="Fechar menu">›</button>
-        </div>
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar expanded" aria-hidden="false">
+    <div class="sidebar-top">
+      <button id="sidebar-close" class="btn-icon arrow" aria-label="Fechar menu">›</button>
+    </div>
 
-        <nav class="sidebar-nav" role="navigation" aria-label="Menu principal">
-            <a href="dashboard.html" class="sidebar-link"><span class="icon">🏠</span><span
-                    class="label">Início</span></a>
-            <a href="conversasao.html" class="sidebar-link"><span class="icon">🗣️</span><span class="label">Conversação e Escuta
-                </span></a>
-            <a href="jogos.html" class="sidebar-link"><span class="icon">🔐</span><span class="label">Iniciar
-                    sessão</span></a>
-            <a href="perfil.html" class="sidebar-link"><span class="icon">👤</span><span class="label">Perfil</span></a>
-        </nav>
+    <nav class="sidebar-nav" role="navigation" aria-label="Menu principal">
+      <a href="dashboard.html" class="sidebar-link"><span class="icon">🏠</span><span class="label">Início</span></a>
+      <a href="conversasao.html" class="sidebar-link"><span class="icon">🗣️</span><span class="label">Conversação e
+          Escuta
+        </span></a>
+      <a href="jogos.html" class="sidebar-link"><span class="icon">🔐</span><span class="label">Iniciar
+          sessão</span></a>
+      <a href="perfil.html" class="sidebar-link"><span class="icon">👤</span><span class="label">Perfil</span></a>
+    </nav>
 
-        <div class="sidebar-footer">
-            <small>APAE</small>
-        </div>
-    </aside>
+    <div class="sidebar-footer">
+      <small>APAE</small>
+    </div>
+  </aside>
 
-    <!-- Header principal -->
-    <header>
-        <div class="header">
-            <div class="logout-container">
-                <button id="btnSair" class="btn-sair-dashboard">Sair</button>
-            </div>
+  <!-- Header principal -->
+  <header class="header">
+    <div class="header-left">
+      <a href="dashboard.html">
+        <img src="./src/images/logo apae caruaru.svg" alt="Logo da Apae" class="logo-apae" />
+      </a>
+    </div>
 
-            <div class="logo-container" id="logoToggle" tabindex="0" role="button" aria-label="Abrir menu lateral">
-                <a href="dashboard.html">
-                    <!-- Corrigido o caminho da logo -->
-                    <img src="./src/images/logo-apae-caruaru.svg" alt="Logo da Apae" id="apaeLogo" />
-                </a>
-            </div>
+    <div class="header-center">
+      <img src="./src/images/UNIFAVIP TAGLINE - VERMELHO E ROXO.png" alt="UNIFAVIP" class="apoio-img" />
+      <img src="./src/images/logoROXOeVERMELHO.png" alt="CCO" class="apoio-img" />
+    </div>
 
-            <div class="row">
-                <div class="apoio">
-                    <div>
-                        <img class="apoio-img apoio1" src="./src/images/UNIFAVIP-TAGLINE-VERMELHO-E-ROXO.png"
-                            alt="Apoio 1" />
-                    </div>
-                    <div>
-                        <img class="apoio-img apoio2" src="./src/images/logoROXOeVERMELHO.png" alt="Apoio 2" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <div class="header-right">
+      <button id="btnSair" class="btn-sair-dashboard">Sair</button>
+    </div>
+  </header>
+
 
   <main class="container">
     <div class="left-panel">
@@ -540,7 +179,7 @@
         totalA += item.acertos || 0;
         totalE += item.erros || 0;
       });
-      
+
       // Corrigido: Atualiza os elementos de totais
       document.getElementById('totalAcertos').textContent = totalA + ' acertos';
       document.getElementById('totalErros').textContent = totalE + ' erros';
@@ -594,4 +233,5 @@
     });
   </script>
 </body>
+
 </html>
