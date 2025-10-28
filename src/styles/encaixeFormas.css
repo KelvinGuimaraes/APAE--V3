@@ -1,0 +1,29 @@
+.encaixeFormas-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.encaixe {
+    width: 800px;
+    height: 527px;
+    border: 1px solid #000;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 25px;
+    background-color: #fff;
+}
+
+.formas {
+    width: 800px;
+    height: 527px;
+    border: 1px solid #000;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 25px;
+    background-color: #fff;
+
+}
