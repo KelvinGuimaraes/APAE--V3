@@ -8,7 +8,7 @@ var otherTile;
 var turns = 0;
 
 // Use caminho absoluto a partir da raiz do Live Server
-const IMG_BASE = "/src/images/encaixeFormas";
+const IMG_BASE = "frontend/src/images/encaixeFormas";
 // Use o total real de imagens
 const TOTAL_PECAS = 12;
 
@@ -31,7 +31,7 @@ function createSlotWrapper(slotId) {
 
 function setupEncaixeImg(img, slotId) {
     img.draggable = false;
-    img.src = `${IMG_BASE}/contornoGeometria/${slotId}.jpg`;
+    img.src = `${IMG_BASE}frontend/src/images/encaixeFormas/contornoGeometria${slotId}.jpg`;
     img.dataset.slotId = slotId;
     img.addEventListener("error", () => {
         console.error("Imagem não encontrada:", img.src);
@@ -40,7 +40,7 @@ function setupEncaixeImg(img, slotId) {
 
 function setupFormaImg(img, pieceId) {
     img.draggable = true;
-    img.src = `${IMG_BASE}/formasGeometrica/${pieceId}.jpg`;
+    img.src = `${IMG_BASE}frontend/src/images/encaixeFormas/formasGeometrica/${pieceId}.jpg`;
     img.dataset.pieceId = pieceId;
     img.addEventListener("error", () => {
         console.error("Imagem não encontrada:", img.src);

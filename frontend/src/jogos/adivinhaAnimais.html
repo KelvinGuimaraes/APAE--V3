@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Apae Jogos</title>
-    <link rel="stylesheet" href="../../reset.css" />
-    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../../../reset.css" />
+    <link rel="stylesheet" href="../../../style.css" />
+    <link rel="stylesheet" href="../styles/adivinhaAnimais.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,10 +18,10 @@
   <body>
     <div class="header">
       <div class="btn-jogos-top">
-        <a href="../../index.html" class="btn-jogos">Voltar</a>
+        <a href="../../jogos.html" class="btn-jogos">Voltar</a>
       </div>
       <div class="container">
-        <a href="../../index.html"
+        <a href="#"
           ><img src="../images/logo apae caruaru.svg" alt="Logo da Apae"
         /></a>
       </div>
@@ -44,40 +45,21 @@
       </div>
     </div>
 
-    <div class="main">
-      <div class="main-cards-cores">
-        <div class="card amarelo" id="B" onclick="B()">
-          <div class="card-content">
-            <p>AMARELO</p>
-          </div>
-        </div>
-        <div class="card azul" id="A" onclick="A()">
-          <div class="card-content">
-            <p>azul</p>
-          </div>
-        </div>
-        <div class="card vermelho" id="C" onclick="C()">
-          <div class="card-content">
-            <p>VERMELHO</p>
-          </div>
-        </div>
-
-        <div class="card branco" id="resultado" onclick="resultado()">
-          <div class="card-content">
-            <p>resultado</p>
-          </div>
-        </div>
-
-        <button id="reset" class="reset" onclick="reset()">🧹LIMPAR</button>
+    <main class="adivinha-container">
+      <div id="game-container">
+        <div id="game-message" aria-live="polite" class="adivinha-pergunta"></div>
+        <div id="game-score"></div>
+        <div id="items-container"></div>
       </div>
-    </div>
+    </main>
 
-    <audio id="amarelo" src="../audio/cores/amarelo.mp3"></audio>
-    <audio id="azul" src="../audio/cores/azul.mp3"></audio>
-    <audio id="vermelho" src="../audio/cores/vermelho.mp3"></audio>
-    <audio id="roxo" src="../audio/cores/roxo.mp3"></audio>
-    <audio id="verde" src="../audio/cores/verde.mp3"></audio>
-    <audio id="laranja" src="../audio/cores/laranja.mp3"></audio>
+    <!-- Áudios de feedback -->
+    <audio id="audio-acerto" src="../audio/efeito_acerto.mp3" preload="auto"></audio>
+    <audio id="audio-erro" src="../audio/efeito-erro.mp3" preload="auto"></audio>
+    <audio id="audio-vitoria" src="../audio/efeito-vitória.mp3" preload="auto"></audio>
+
+    <!-- confetis -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <div class="footer">
       <ul class="footer-sections">
@@ -97,11 +79,20 @@
           <a draggable="false" href="../jogos/memoria.html">
             <li class="section JOGOS"><p>Memória</p></li>
           </a>
+          <a draggable="false" href="../../src/jogos/labirinto.html">
+            <li class="section JOGOS"><p>Labirinto</p></li>
+          </a>
+          <a draggable="false" href="../../src/jogos/quebraCabeca.html">
+            <li class="section JOGOS"><p>Quebra Cabeça</p></li>
+          </a>
+          <a draggable="false" href="../../src/jogos/encaixeFormas.html">
+            <li class="section JOGOS"><p>Encaixe Formas</p></li>
+          </a>
         </div>
       </ul>
     </div>
 
     <!-- JavaScript -->
-    <script src="../../src/js/misturandoCores.js"></script>
+    <script src="../../src/js/adivinhaAnimais.js"></script>
   </body>
 </html>

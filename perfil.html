@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Apae - Perfil</title>
 
-    <link rel="stylesheet" href="src/styles/perfil.css" />
+    <link rel="stylesheet" href="./frontend/src/styles/perfil.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="./src/images/APAE LOGO.png" />
+    <link rel="icon" type="image/x-icon" href="./frontend/src/images/APAE LOGO.png" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
   <style>
@@ -372,17 +372,22 @@
     <!-- Sidebar -->
     <aside id="sidebar" class="sidebar expanded" aria-hidden="false">
         <div class="sidebar-top">
-            <button id="sidebar-close" class="btn-icon arrow" aria-label="Fechar menu">›</button>
+            <a href="./dashboard.html"><button id="sidebar-close" class="btn-icon arrow" aria-label="Fechar menu">›</button></a>
         </div>
 
         <nav class="sidebar-nav" role="navigation" aria-label="Menu principal">
-            <a href="dashboard.html" class="sidebar-link"><span class="icon">🏠</span><span
-                    class="label">Início</span></a>
-            <a href="conversasao.html" class="sidebar-link"><span class="icon">🗣️</span><span class="label">Conversação e Escuta
-                </span></a>
-            <a href="jogos.html" class="sidebar-link"><span class="icon">🔐</span><span class="label">Iniciar
-                    sessão</span></a>
-            <a href="perfil.html" class="sidebar-link"><span class="icon">👤</span><span class="label">Perfil</span></a>
+            <a href="./dashboard.html" class="sidebar-link"><span class="icon">🏠</span>
+                <span class="label">Início</span>
+            </a>
+            <a href="./frontend/index.html" class="sidebar-link"><span class="icon">🗣️</span>
+                <span class="label">Conversação e Escuta</span>
+            </a>
+            <a href="./frontend/jogos.html" class="sidebar-link"><span class="icon">🔐</span>
+                <span class="label">Iniciar sessão</span>
+            </a>
+            <a href="./perfil.html" class="sidebar-link"><span class="icon">👤</span>
+                <span class="label">Perfil</span>
+            </a>
         </nav>
 
         <div class="sidebar-footer">
@@ -393,27 +398,29 @@
     <!-- Header principal -->
     <header>
         <div class="header">
-            <div class="logout-container">
-                <button id="btnSair" class="btn-sair-dashboard">Sair</button>
-            </div>
-
+            
             <div class="logo-container" id="logoToggle" tabindex="0" role="button" aria-label="Abrir menu lateral">
-                <a href="dashboard.html">
+                <a href="./dashboard.html">
                     <!-- Corrigido o caminho da logo -->
-                    <img src="./src/images/logo-apae-caruaru.svg" alt="Logo da Apae" id="apaeLogo" />
+                    <img src="./frontend/src/images/logo apae caruaru.svg" alt="Logo da Apae" id="apaeLogo" />
                 </a>
             </div>
 
             <div class="row">
                 <div class="apoio">
                     <div>
-                        <img class="apoio-img apoio1" src="./src/images/UNIFAVIP-TAGLINE-VERMELHO-E-ROXO.png"
+                        <img class="apoio-img apoio1" src="./frontend/src/images/UNIFAVIP TAGLINE - VERMELHO E ROXO.png"
                             alt="Apoio 1" />
                     </div>
                     <div>
-                        <img class="apoio-img apoio2" src="./src/images/logoROXOeVERMELHO.png" alt="Apoio 2" />
+                        <img class="apoio-img apoio2" src="./frontend/src/images/logoROXOeVERMELHO.png" alt="Apoio 2" />
                     </div>
                 </div>
+
+                <div class="logout-container">
+                <button id="btnSair" class="btn-sair-dashboard">Sair</button>
+                </div>
+            </div>
             </div>
         </div>
     </header>
