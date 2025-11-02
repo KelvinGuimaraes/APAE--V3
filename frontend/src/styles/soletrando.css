@@ -1,12 +1,21 @@
 .main-cards-soletrando { /*SOLETRANDO*/
+ position: fixed;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  will-change: transform;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 2rem auto; /* Centraliza horizontalmente */
-  margin-left: 850px;
-  height: 250px;
-  width: 289px;
+  margin: 0; /* remover margin-left antigo */
+  width: min(320px, 90%); /* responsivo */
+  height: auto;
+  max-height: calc(100vh - 32px); /* impede que o card exceda a viewport */
+  overflow: hidden; /* evita que o card cresça fora da tela */
+  padding: 1rem;
+  box-sizing: border-box;
   border-radius: 15px;
   cursor: pointer;
 }
@@ -57,7 +66,7 @@
   width: 100%; /* Largura total do contêiner */
   font-family: "Poppins", sans-serif;
   font-size: 2rem;
-  margin-top: -10rem;
+  margin-top: 3rem;
 }
 
 /* Contêiner dos botões de letras */

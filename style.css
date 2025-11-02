@@ -189,19 +189,6 @@ body {
   width: 100%; /* Garante que o contêiner ocupe toda a largura */
 }
 
-.main-cards-soletrando { /*SOLETRANDO*/
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 2rem ; /* Centraliza horizontalmente */
-  margin-left: 670px; /* Ajuste conforme necessário */
-  height: 250px;
-  width: 289px;
-  border-radius: 15px;
-  cursor: pointer;;
-}
-
 .card {
   display: flex;
   flex-direction: column;

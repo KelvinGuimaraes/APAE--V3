@@ -1,15 +1,16 @@
 /* estilos para o seleção do quebra cabeça */
 .quebraCabeca-home {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-    gap: 30px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas iguais */
+    gap: 20px; /* espaçamento entre as imagens */
+    justify-items: center; /* centraliza horizontalmente */
+    margin-top: 20px;
+    max-width: 1000px; /* controla a largura máxima */
+    margin: 20px auto; /* centraliza o grid na tela */
 }
 
 .quebra-cabeca-link img {
-    width: 300px;
+    width: 240px; /* ou outro valor menor */
     height: auto;
     border: 4px solid #000;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
@@ -22,17 +23,38 @@
 
 /*estilos para o jogo de quebra cabeça*/
 .quebraCabeca-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 220px auto; /* coluna fixa para peças + área para o quadro */
+    align-items: start;
+    gap: 24px;
+    margin: 5px auto;
+    max-width: 1200px;
+    width: calc(100% - 40px);
+    box-sizing: border-box;
+    padding: 20px;
 }
 
+.pecas, #pecas {
+    grid-column: 1 / 2;
+    justify-self: start;
+    display: grid;
+    grid-auto-rows: auto;
+    gap: 12px;
+    width: 200px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    max-height: 80vh;
+    position: relative;
+    margin-top: -900px;
+    overflow-y: auto;
+}
 
 .quadro-jogo {
-    width: 804px;
-    height: 804px;
+    grid-column: 2 / 3;
+    width: 800px;
+    height: 800px;
     display: grid;
     grid-template-columns: repeat(5, 160px);
     grid-template-rows: repeat(5, 160px);
@@ -40,27 +62,42 @@
     box-sizing: border-box;
     border: 2px solid #000;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
 }
 
 .quadro-jogo img {
     width: 160px;
     height: 160px;
-    box-sizing: border-box;
-}
-
-.pecas, #pecas {
-    width: 1600px;
-    height: 160px;
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(13, 160px);
-    justify-content: center;
-    background-color: #f0f0f0;
-    box-sizing: border-box;
+    object-fit: cover;
 }
 
 .pecas img, #pecas img {
-    width: 160px;
-    height: 160px;
-    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* RESPONSIVIDADE: em telas pequenas empilha verticalmente */
+@media (max-width: 1000px) {
+  .quebraCabeca-container {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .pecas, #pecas {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-height: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .quadro-jogo {
+    grid-column: 1 / -1;
+    width: 360px;
+    height: 360px;
+  }
+
+  .quadro-jogo img { width: 72px; height: 72px; }
 }

@@ -14,18 +14,25 @@
 }
 
 .labirinto {
-    top: 15px;
-    opacity: 0;
+    /* opacity removida para evitar controles por string */
     display: inline-block;
     margin: auto;
     border-radius: 10px;
+    max-height: 100%;
+    max-width: calc(100vh - 260px); /* garante espaço para header/footer */
+    box-sizing: border-box;
 }
 
 .labirinto #labirintoCanvas {
-    margin-top: 40px;
+    margin-bottom: 500px;
     display: block;
     border: solid 2px black;
-    height: 800px;
+    /* responsivo: ocupa largura disponível sem ultrapassar a viewport */
+    height: 100%;
+    max-width: min(80vmin, 900px);
+    height: auto;
+    max-width: calc(100vh - 250px); /* evita corte por header/footer */
+    box-sizing: border-box;
 }
 
 .radio-inputs {
@@ -213,5 +220,18 @@
     background-color: #f0f0f0;
     font-size: 16px;
     line-height: 1.5;
+}
+
+#view {
+    display: none; /* escondido até clicar em Iniciar */
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centraliza labirinto entre header e footer */
+    box-sizing: border-box;
+    padding: 16px;
+    overflow: auto; /* permite rolagem se necessário em telas pequenas */
+    max-height: calc(100vh - 160px); /* deixa espaço para header/footer e instruções */
 }
 

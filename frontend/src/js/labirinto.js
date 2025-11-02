@@ -498,17 +498,20 @@ function rand(max) {
       ctx.canvas.height = viewWidth - viewWidth / 100;
     }
   
+    // desabilita botão iniciar até as sprites carregarem (opcional)
+    var startBtn = document.getElementById("iniciar-labirinto");
+    if (startBtn) startBtn.disabled = true;
+  
     //Load and edit sprites
     var completeOne = false;
     var completeTwo = false;
     var isComplete = () => {
-      if(completeOne === true && completeTwo === true)
-         {
-           console.log("Runs");
-           setTimeout(function(){
-             makeMaze();
-           }, 500);         
-         }
+      if (completeOne === true && completeTwo === true) {
+        console.log("Sprites carregados");
+        // habilita botão iniciar quando tudo estiver pronto
+        if (startBtn) startBtn.disabled = false;
+        // NÃO chamar makeMaze() automaticamente — o usuário deve clicar em Iniciar
+      }
     };
     sprite = new Image();
     // image paths should be relative to the HTML file that includes this script
@@ -525,9 +528,9 @@ function rand(max) {
     };
   
     finishSprite = new Image();
-  finishSprite.src = "../images/labirinto/chesse.png" +
-  "?" +
-  new Date().getTime();
+    finishSprite.src = "../images/labirinto/chesse.png" +
+    "?" +
+    new Date().getTime();
     finishSprite.setAttribute("crossOrigin", " ");
     finishSprite.onload = function() {
       finishSprite = changeBrightness(1.1, finishSprite);
@@ -535,6 +538,12 @@ function rand(max) {
       console.log(completeTwo);
       isComplete();
     };
+    
+    // garantir estado inicial: menu visível e view escondida
+    var menu = document.getElementById("menu-labirinto");
+    var view = document.getElementById("view");
+    if (menu) menu.style.display = "flex";
+    if (view) view.style.display = "none";
     
   };
   
@@ -588,7 +597,10 @@ function rand(max) {
     maze = new Maze(difficulty, difficulty);
     draw = new DrawMaze(maze, ctx, cellSize, finishSprite);
     player = new Player(maze, mazeCanvas, cellSize, displayVictoryMess, sprite);
-    if (document.getElementById("labirinto").style.opacity < "100") {
-      document.getElementById("labirinto").style.opacity = "100";
-    }
+
+    // esconder menu e mostrar a área de visualização centralizada
+    var menu = document.getElementById("menu-labirinto");
+    var view = document.getElementById("view");
+    if (menu) menu.style.display = "none";
+    if (view) view.style.display = "flex";
   }
