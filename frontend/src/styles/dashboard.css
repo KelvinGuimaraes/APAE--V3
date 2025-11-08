@@ -43,6 +43,35 @@ body {
   cursor: pointer;
 }
 
+/* Ajuste: reduzir tamanho das imagens de apoio no header */
+.apoio {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.apoio-img {
+  max-width: 120px;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Responsividade para imagens de apoio */
+@media (max-width: 900px) {
+  .apoio-img {
+    max-height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .apoio-img {
+    max-height: 36px;
+  }
+}
+
+
 /* Botão sair */
 /* Botão sair (isolado da classe .btn global) */
 .btn-sair-dashboard {
@@ -105,7 +134,9 @@ body {
   left: 0;
   top: 0;
   height: 100vh;
-  background: linear-gradient(180deg, #ffffff 0%, #f3f9f4 100%);
+
+  background: linear-gradient(180deg, #f6fff8 0%, #daf5df 100%);
+
   box-shadow: rgba(0, 0, 0, 0.08) 2px 0 8px;
   z-index: 60;
   display: flex;
@@ -125,6 +156,7 @@ body {
 /* Botão de seta */
 .btn-icon.arrow {
   font-size: 3rem;
+  margin: 20px 20px 10px 20px;
   width: 40px;
   height: 50px;
   background: var(--accent);

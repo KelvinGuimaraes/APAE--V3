@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./frontend/src/styles/dashboard.css" />
-    <link rel="stylesheet" href="./style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -18,8 +17,9 @@
 </head>
 
 <body>
-    <!-- Sidebar -->
+   <!-- Sidebar -->
     <aside id="sidebar" class="sidebar expanded" aria-hidden="false">
+        
         <div class="sidebar-top">
             <button id="sidebar-close" class="btn-icon arrow" aria-label="Fechar menu">›</button>
         </div>
@@ -28,7 +28,7 @@
             <a href="./dashboard.html" class="sidebar-link"><span class="icon">🏠</span>
                 <span class="label">Início</span>
             </a>
-            <a href="./frontend/index.html" class="sidebar-link"><span class="icon">🗣️</span>
+            <a href="./conversasao.html" class="sidebar-link"><span class="icon">🗣️</span>
                 <span class="label">Conversação e Escuta</span>
             </a>
             <a href="./frontend/jogos.html" class="sidebar-link"><span class="icon">🔐</span>
@@ -48,7 +48,7 @@
     <header>
         <div class="header">
             <div class="logout-container">
-                <button id="btnSair" class="btn-sair-dashboard">Sair</button>
+                <a href="./login.html"></a><button id="btnSair" class="btn-sair-dashboard">Sair</button></a>
             </div>
 
             <div class="logo-container" id="logoToggle" tabindex="0" role="button" aria-label="Abrir menu lateral">
@@ -107,7 +107,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
-    <script src="./src/js/dashboard.js"></script>
+    <script src="./frontend/src/js/dashboard.js"></script>
 
 </body>
 

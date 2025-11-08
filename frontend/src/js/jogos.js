@@ -114,6 +114,23 @@ document.addEventListener("DOMContentLoaded", () => {
         audioId: "adivinhacao_player",
         imgClass: ".card.adivinhacao .audio-verde-img",
       },
+      {
+        audioId: "adivinhacao_player",
+        imgClass: ".card.adivinhacao .audio-verde-img",
+      },
+      {
+        audioId: "labirinto_player",
+        imgClass: ".card.labirinto .audio-verde-img",
+      },
+      {
+        audioId: "quebraCabeca_player",
+        imgClass: ".card.quebraCabeca .audio-verde-img",
+      },
+      {
+        audioId: "encaixeFormas_player",
+        imgClass: ".card.encaixeFormas .audio-verde-img",
+      },
+
       { audioId: "memoria_player", imgClass: ".card.memoria .audio-verde-img" },
     ];
 

@@ -12,17 +12,17 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/x-icon" href="./src/images/APAE LOGO.png" />
+    <link rel="icon" type="image/x-icon" href="./frontend/src/images/APAE LOGO.png" />
   </head>
 
   <body>
     <div class="header">
       <div class="btn-jogos-top">
-        <a href="/dashboard.html" class="btn-jogos">Voltar</a>
+        <a href="./dashboard.html" class="btn-jogos">Voltar</a>
       </div>
       <div class="container">
-        <a href="/dashboard.html"
-          ><img src="./src/images/logo apae caruaru.svg" alt="Logo da Apae" />
+        <a href="./dashboard.html"
+          ><img src="./frontend/src/images/logo apae caruaru.svg" alt="Logo da Apae" />
         </a>
       </div>
       <div class="row">
@@ -30,14 +30,14 @@
           <div>
             <img
               class="apoio-img apoio1"
-              src="./src/images/UNIFAVIP TAGLINE - VERMELHO E ROXO.png"
+              src="./frontend/src/images/UNIFAVIP TAGLINE - VERMELHO E ROXO.png"
               alt=""
             />
           </div>
           <div>
             <img
               class="apoio-img apoio2"
-              src="./src/images/logoROXOeVERMELHO.png"
+              src="./frontend/src/images/logoROXOeVERMELHO.png"
               alt=""
             />
           </div>
@@ -49,15 +49,15 @@
       <div class="main-cards-necessidades">
         <div class="card necessidades">
           <div class="card-figure">
-            <a href="./necessidades.html">
+            <a href="./frontend/index.html">
               <img
                 class="card_img necessidades"
-                src="./src/images/conversacao/necessidades.png"
+                src="./frontend/src/images/conversacao/necessidades.png"
                 alt="Necessidades"
               />
               <img
                 class="audio-verde-img"
-                src="./src/images/audio-verde.png"
+                src="./frontend/src/images/audio-verde.png"
                 alt="Ouvir nome de Necessidades"
               />
             </a>
@@ -67,22 +67,22 @@
             <p>NECESSIDADES</p>
           </div>
           <audio id="necessidades_player">
-            <source src="./src/audio/conversacao/necessidades.mp3" type="audio/mp3" />
+            <source src="./frontend/src/audio/conversacao/necessidades.mp3" type="audio/mp3" />
           </audio>
         </div>
 
         <div class="card numeros">
           <div class="card-figure">
-            <a href="./numeros.html">
+            <a href="./frontend/numeros.html">
               <img
                 class="card_img numeros"
-                src="./src/images/conversacao/numeros.png"
+                src="./frontend/src/images/conversacao/numeros.png"
                 alt="Números"
               />
             </a>
             <img
               class="audio-verde-img"
-              src="./src/images/audio-verde.png"
+              src="./frontend/src/images/audio-verde.png"
               alt="Ouvir nome: Números"
             />
           </div>
@@ -90,22 +90,45 @@
             <p>NÚMEROS</p>
           </div>
           <audio id="numeros_player">
-            <source src="./src/audio/conversacao/numeros.mp3" type="audio/mp3" />
+            <source src="./frontend/src/audio/conversacao/numeros.mp3" type="audio/mp3" />
+          </audio>
+        </div>
+
+        <div class="card numeros">
+          <div class="card-figure">
+            <a href="./frontend/calculadora.html">
+              <img
+                class="card_img numeros"
+                src="./frontend/src/images/jogos/calculadora.jpeg"
+                alt="Números"
+              />
+            </a>
+            <img
+              class="audio-verde-img"
+              src="./frontend/src/images/audio-verde.png"
+              alt="Ouvir nome: Números"
+            />
+          </div>
+          <div class="card-content">
+            <p>CALCULADORA</p>
+          </div>
+          <audio id="numeros_player">
+            <source src="./frontend/src/audio/jogos/calculadora.mp3" type="audio/mp3" />
           </audio>
         </div>
 
         <div class="card cores">
           <div class="card-figure">
-            <a href="./cores.html">
+            <a href="./frontend/cores.html">
               <img
                 class="card_img cores"
-                src="./src/images/conversacao/cores.png"
+                src="./frontend/src/images/conversacao/cores.png"
                 alt="Cores"
               />
             </a>
             <img
               class="audio-verde-img"
-              src="./src/images/audio-verde.png"
+              src="./frontend/src/images/audio-verde.png"
               alt="Ouvir nome: Cores"
             />
           </div>
@@ -114,7 +137,7 @@
           </div>
           <audio id="cores_player">
             <source
-              src="./src/audio/conversacao/cores.mp3"
+              src="./frontend/src/audio/conversacao/cores.mp3"
               type="audio/mp3"
             />
           </audio>
@@ -122,16 +145,16 @@
 
         <div class="card animais">
           <div class="card-figure">
-            <a href="./animais.html">
+            <a href="./frontend/animais.html">
               <img
                 class="card_img animais"
-                src="./src/images/conversacao/animais.png"
+                src="./frontend/src/images/conversacao/animais.png"
                 alt="Animais"
               />
             </a>
             <img
               class="audio-verde-img"
-              src="./src/images/audio-verde.png"
+              src="./frontend/src/images/audio-verde.png"
               alt="Ouvir nome: Animais"
             />
           </div>
@@ -139,13 +162,13 @@
             <p>ANIMAIS</p>
           </div>
           <audio id="animais_player">
-            <source src="./src/audio/conversacao/animais.mp3" type="audio/mp3" />
+            <source src="./frontend/src/audio/conversacao/animais.mp3" type="audio/mp3" />
           </audio>
         </div>
       </div>
     </div>
 
     <!-- JavaScript -->
-    <script src="./src/js/conversacao.js"></script>
+    <script src="./frontend/src/js/conversacao.js"></script>
   </body>
 </html>
