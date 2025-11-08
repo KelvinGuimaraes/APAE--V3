@@ -88,14 +88,14 @@
 .feedback.correto {
   color: #4caf50;
   font-weight: bold;
-  animation: pulse 0.5s ease; /* Animação opcional */
+  animation: pulse 0.5s ease; 
 }
 
 /* Cor e estilo do feedback errado */
 .feedback.errado {
   color: #ff0000;
   font-weight: bold;
-  animation: pulse 0.5s ease; /* Animação opcional */
+  animation: pulse 0.5s ease; 
 }
 
 /* Animação visual para feedback */
@@ -107,10 +107,10 @@
 
 .card-img {
  display: block;
-  height: 110%; /* Faz a imagem ocupar toda a altura do card */
-  width: 100%; /* Faz a imagem ocupar toda a largura do card */
-  object-fit: cover; /* Garante que a imagem se ajuste sem distorção */
-  border-radius: 15px; /* Mantém o arredondamento */
+  height: 110%; 
+  width: 100%; 
+  object-fit: cover; 
+  border-radius: 15px; 
   box-shadow: #73b369 0px 4px 30px;
   cursor: pointer;
   overflow: hidden;

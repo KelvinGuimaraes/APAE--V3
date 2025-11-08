@@ -37,42 +37,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const setupCardListeners = () => {
     const cardsMap = [
       {
-        selector: ".card.calculadora a",
-        audioId: "calculadora_player",
+        selector: ".card.necessidades a",
+        audioId: "necessidades_player",
       },
       {
-        selector: ".card.soletrando a",
-        audioId: "soletrando_player",
+        selector: ".card.numeros a",
+        audioId: "numeros_player",
       },
       {
-        selector: ".card.misturando-cores a",
-        audioId: "misturando_cores_player",
+        selector: ".card.cores a",
+        audioId: "cores_player",
       },
       {
-        selector: ".card.adivinhacao a",
-        audioId: "adivinhacao_player",
+        selector: ".card.animais a",
+        audioId: "animais_player",
       },
       {
-        selector: ".card.memoria a",
-        audioId: "memoria_player",
+        selector: ".card.jogos a",
+        audioId: "jogos_player",
       },
-      {
-        selector: ".card.cobrirTracejado a",
-        audioId: "cobrirTracejado_player",
-      },
-      {
-        selector: ".card.labirinto a",
-        audioId: "labirinto_player",
-      },
-      {
-        selector: ".card.quebraCabeca a",
-        audioId: "quebraCabeca_player",
-      },
-      {
-        selector: ".card.encaixeFormas a",
-        audioId: "encaixeFormas_player",
-      }
-      
     ];
 
     cardsMap.forEach((item) => {
@@ -99,22 +82,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const setupAudioIconListeners = () => {
     const audioImageMap = [
       {
-        audioId: "calculadora_player",
-        imgClass: ".card.calculadora .audio-verde-img",
+        audioId: "necessidades_player",
+        imgClass: ".card.necessidades .audio-verde-img",
       },
       {
-        audioId: "soletrando_player",
-        imgClass: ".card.soletrando .audio-verde-img",
+        audioId: "numeros_player",
+        imgClass: ".card.numeros .audio-verde-img",
       },
       {
-        audioId: "misturando_cores_player",
-        imgClass: ".card.misturando-cores .audio-verde-img",
+        audioId: "cores_player",
+        imgClass: ".card.cores .audio-verde-img",
       },
       {
-        audioId: "adivinhacao_player",
-        imgClass: ".card.adivinhacao .audio-verde-img",
+        audioId: "animais_player",
+        imgClass: ".card.animais .audio-verde-img",
       },
-      { audioId: "memoria_player", imgClass: ".card.memoria .audio-verde-img" },
+      { audioId: "jogos_player", imgClass: ".card.jogos .audio-verde-img" },
     ];
 
     audioImageMap.forEach((pair) => {
