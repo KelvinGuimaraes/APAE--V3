@@ -45,10 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
         audioId: "soletrando_player",
       },
       {
-        selector: ".card.misturando-cores a",
-        audioId: "misturando_cores_player",
-      },
-      {
         selector: ".card.adivinhacao a",
         audioId: "adivinhacao_player",
       },
@@ -105,10 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         audioId: "soletrando_player",
         imgClass: ".card.soletrando .audio-verde-img",
-      },
-      {
-        audioId: "misturando_cores_player",
-        imgClass: ".card.misturando-cores .audio-verde-img",
       },
       {
         audioId: "adivinhacao_player",

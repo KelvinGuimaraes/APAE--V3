@@ -56,6 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
         selector: ".card.jogos a",
         audioId: "jogos_player",
       },
+      {
+        selector: ".card.misturandoCores a",
+        audioId: "misturandoCores_player",
+      },
     ];
 
     cardsMap.forEach((item) => {
@@ -96,6 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         audioId: "animais_player",
         imgClass: ".card.animais .audio-verde-img",
+      },
+      {
+        audioId: "misturandoCores_player",
+        imgClass: ".card.misturandoCores .audio-verde-img",
       },
       { audioId: "jogos_player", imgClass: ".card.jogos .audio-verde-img" },
     ];
