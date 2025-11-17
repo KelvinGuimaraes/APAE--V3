@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "seed:games": "node src/seed/seedGames.js"
   },
   "dependencies": {
     "express": "^4.18.0",
