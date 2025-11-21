@@ -1,49 +1,40 @@
-// Busca usuários existentes no localStorage ou cria um array vazio
-const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-// Seleciona os campos do formulário
-const nomeInput = document.getElementById("nome");
-const sexoInput = document.getElementById("sexo");
-const cpfInput = document.getElementById("cpf");
-const idadeInput = document.getElementById("idade");
-const diagnosticoInput = document.getElementById("diagnostico");
-const senhaInput = document.getElementById("senha");
-
 const btn = document.getElementById("cadastrarBtn");
 
-btn.addEventListener("click", (e) => {
-  e.preventDefault(); // evita envio real do form
+btn.addEventListener("click", async (e) => {
+  e.preventDefault();
 
-  const nome = nomeInput.value.trim();
-  const sexo = sexoInput.value;
-  const cpf = cpfInput.value.trim();
-  const idade = idadeInput.value.trim();
-  const diagnostico = diagnosticoInput.value.trim();
-  const senha = senhaInput.value;
+  const payload = {
+    nome: document.getElementById("nome").value.trim(),
+    sexo: document.getElementById("sexo").value,
+    cpf: document.getElementById("cpf").value.trim(),
+    idade: parseInt(document.getElementById("idade").value, 10) || null,
+    diagnostico: document.getElementById("diagnostico").value.trim(),
+    senha: document.getElementById("senha").value
+  };
 
-  // Validação simples
-  if (!nome || !sexo || !cpf || !idade || !diagnostico || !senha) {
-    alert("Preencha todos os campos!");
-    return;
+  for (let k of ["nome", "cpf", "senha"]) {
+    if (!payload[k]) { alert("Preencha os campos obrigatórios"); return; }
   }
 
-  // Verifica se o CPF já está cadastrado
-  const usuarioExistente = usuarios.find((u) => u.cpf === cpf);
-  if (usuarioExistente) {
-    alert("CPF já cadastrado!");
-    return;
+  try {
+    const res = await fetch("http://localhost:3000/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+    if (!res.ok) {
+      alert(data.message || "Erro ao cadastrar");
+      return;
+    }
+
+    sessionStorage.setItem("usuarioNome", payload.nome);
+    alert("Cadastrado com sucesso!");
+    window.location.href = "/dashboard.html";
+
+  } catch (err) {
+    console.error(err);
+    alert("Erro de conexão com o servidor.");
   }
-
-  // Cria o novo usuário
-  const novoUsuario = { nome, sexo, cpf, idade, diagnostico, senha };
-
-  // Salva no localStorage
-  usuarios.push(novoUsuario);
-  localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-  // Armazena o nome para a dashboard
-  sessionStorage.setItem("usuarioNome", nome);
-
-  // Redireciona para dashboard
-  window.location.href = "/dashboard.html";
 });

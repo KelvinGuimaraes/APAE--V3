@@ -1,32 +1,32 @@
-// Dados mocados de usuários
-const usuarios = [
-  { cpf: "12345678900", senha: "1234", nome: "João" },
-  { cpf: "98765432100", senha: "abcd", nome: "Maria" }
-];
-
-// Seleciona elementos do formulário
 const btn = document.getElementById("entrarBtn");
-const cpfInput = document.querySelector('input[placeholder*="CPF"]');
-const senhaInput = document.querySelector('input[placeholder*="senha"]');
 
-btn.addEventListener("click", (e) => {
-  e.preventDefault(); // evita o envio real do form
+btn.addEventListener("click", async (e) => {
+  e.preventDefault();
 
-  const cpf = cpfInput.value;
-  const senha = senhaInput.value;
+  const cpf = document.querySelector('input[placeholder*="CPF"]').value.trim();
+  const senha = document.querySelector('input[placeholder*="senha"]').value;
 
-  // Verifica se o usuário existe
-  const usuarioValido = usuarios.find(
-    (u) => u.cpf === cpf && u.senha === senha
-  );
+  if (!cpf || !senha) { alert("Preencha CPF e senha"); return; }
 
-  if (usuarioValido) {
-    // Armazena o nome no sessionStorage para usar no dashboard
-    sessionStorage.setItem("usuarioNome", usuarioValido.nome);
+  try {
+    const res = await fetch("http://localhost:3000/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ cpf, senha })
+    });
 
-    // Redireciona para o dashboard
+    const data = await res.json();
+    if (!res.ok) {
+      alert(data.message || "CPF ou senha incorretos!");
+      return;
+    }
+
+    localStorage.setItem("token", data.token);
+    sessionStorage.setItem("usuarioNome", data.nome);
+
     window.location.href = "/dashboard.html";
-  } else {
-    alert("CPF ou senha incorretos!");
+  } catch (err) {
+    console.error(err);
+    alert("Erro ao conectar ao servidor.");
   }
 });

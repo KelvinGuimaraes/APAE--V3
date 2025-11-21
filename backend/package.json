@@ -2,19 +2,25 @@
   "name": "apae-backend",
   "version": "1.0.0",
   "description": "Backend simples para projeto APAE-V3",
-  "main": "app.js",
+ "main": "src/server.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "seed:games": "node src/seed/seedGames.js"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "migrate": "node src/database/migrate.js",
+    "seed": "node src/database/seedGames.js"
   },
   "dependencies": {
-    "express": "^4.18.0",
-    "sqlite3": "^5.1.0",
-    "bcrypt": "^5.1.0",
-    "express-session": "^1.17.0"
+    "better-sqlite3": "^8.0.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.0"
+    "nodemon": "^2.0.22"
+  },
+  "engines": {
+    "node": ">=16"
   }
 }

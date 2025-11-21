@@ -1,5 +1,5 @@
 // src/seed/seedGames.js
-const db = require("../models");
+const db = require("./connection");
 
 async function seedGames() {
   const games = [
@@ -80,6 +80,8 @@ async function seedGames() {
     },
   ];
 
+if (require.main === module) seed();
+
   try {
     await db.Game.bulkCreate(games);
     console.log("✔ Jogos cadastrados com sucesso!");
@@ -88,6 +90,17 @@ async function seedGames() {
     console.error("❌ Erro ao cadastrar jogos:", err);
     process.exit(1); // encerra com erro
   }
+}
+
+function seed() {
+  const insert = db.prepare(`INSERT OR IGNORE INTO games (slug, title, description) VALUES (@slug, @title, @description)`);
+  const insertMany = db.transaction((arr) => {
+    for (const g of arr) insert.run(g);
+  });
+
+  insertMany(games);
+
+  console.log("Seed de jogos inserida/atualizada.");
 }
 
 seedGames();
