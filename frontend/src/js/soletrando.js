@@ -69,9 +69,6 @@ let retryingFailed = false;
 const container = document.createElement("div");
 container.classList.add("soletrando-container");
 
-const imagem = document.createElement("img");
-imagem.classList.add("soletrando-imagem");
-
 const botoesContainer = document.createElement("div");
 botoesContainer.classList.add("soletrando-letras");
 
@@ -86,8 +83,8 @@ tentativasInfo.style.marginTop = "0.5rem";
 document.body.querySelector(".main").after(container);
 container.append(botoesContainer, tentativasInfo, tentativaTexto);
 
-document.querySelector(".card-figure").append(imagem);
-container.append(imagem);
+// usa apenas a imagem que já existe no HTML
+const imagem = document.querySelector(".card-img");
 
 //converte letras acentuadas para simples
 function normalizarLetra(letra) {
@@ -335,6 +332,37 @@ function reiniciarJogo() {
   iniciarRodada();
 }
 
-// Embaralha as palavras no início
-palavras.sort(() => 0.5 - Math.random());
-iniciarRodada();
+// BOTÃO INICIAR DO SOLETRANDO
+
+const btnIniciarSoletrando = document.getElementById("btn-iniciar");
+const overlaySoletrando = document.getElementById("start-overlay");
+
+let jogoBloqueado = true; // impede cliques antes do iniciar
+
+if (btnIniciarSoletrando) {
+  btnIniciarSoletrando.addEventListener("click", () => {
+    jogoBloqueado = false;
+
+    // remove overlay
+    overlaySoletrando.style.display = "none";
+
+    // MOSTRA O CARD AGORA
+    const cardImagem = document.querySelector(".adivinha-container");
+    const imagemPrincipal = document.querySelector(".game-container");
+
+    if (cardImagem) cardImagem.style.display = "block";
+    if (imagemPrincipal) imagemPrincipal.style.display = "block";
+
+    // embaralha palavras e inicia
+    palavras.sort(() => 0.5 - Math.random());
+    iniciarRodada();
+  });
+}
+
+// bloqueia botões até iniciar
+document.addEventListener("click", (e) => {
+  if (jogoBloqueado && e.target.classList.contains("letra-btn")) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+});

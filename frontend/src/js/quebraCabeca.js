@@ -104,3 +104,18 @@ function dragEnd() {
     // update attempts counter (HTML uses id="tentativas")
     document.getElementById("tentativas").innerText = turns;
 }
+
+// === BOTÃO DE INICIAR O GAME ===
+const startButton = document.getElementById("btn-iniciar");
+
+if (startButton) {
+  startButton.addEventListener("click", () => {
+    jogoIniciado = true;
+
+    // Remove a tela inicial
+    const overlay = document.getElementById("start-overlay");
+    if (overlay) overlay.style.display = "none";
+
+    updateGame();
+  });
+}

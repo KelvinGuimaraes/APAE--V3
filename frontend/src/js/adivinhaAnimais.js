@@ -284,11 +284,17 @@ function handleChoice(item) {
   }
 }
 
-// Inicializa o jogo
-function initGame() {
-  updateGame();
-}
+// === BOTÃO DE INICIAR O GAME ===
+const startButton = document.getElementById("btn-iniciar");
 
-window.addEventListener("DOMContentLoaded", () => {
-  initGame();
-});
+if (startButton) {
+  startButton.addEventListener("click", () => {
+    jogoIniciado = true;
+
+    // Remove a tela inicial
+    const overlay = document.getElementById("start-overlay");
+    if (overlay) overlay.style.display = "none";
+
+    updateGame();
+  });
+}

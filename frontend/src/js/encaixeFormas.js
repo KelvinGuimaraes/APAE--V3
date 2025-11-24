@@ -151,3 +151,18 @@ window.onload = function() {
     if (tentativas) tentativas.innerText = "0";
     turns = 0;
 };
+
+// === BOTÃO DE INICIAR O GAME ===
+const startButton = document.getElementById("btn-iniciar");
+
+if (startButton) {
+  startButton.addEventListener("click", () => {
+    jogoIniciado = true;
+
+    // Remove a tela inicial
+    const overlay = document.getElementById("start-overlay");
+    if (overlay) overlay.style.display = "none";
+
+    updateGame();
+  });
+}

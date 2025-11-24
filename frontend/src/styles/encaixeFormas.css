@@ -89,6 +89,43 @@ h1 {
     font-size: 1.1rem;
 }
 
+/* overlay de início */
+.start-overlay{
+  position: absolute;
+  inset: 0; 
+  margin-bottom: 80px;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;   
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+  pointer-events: auto;
+  z-index: 999;
+}
+
+/* caixa do botão */
+.start-box{
+  width: 100%;
+  max-width: 480px; 
+  background: #fff;
+  padding: 28px 36px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+/* garante que o botão seja clicável */
+.start-overlay button {
+  pointer-events: auto;
+}
+
+.start-box .name{
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
 /* responsividade */
 @media (max-width: 900px) {
     .encaixeFormas-container {
