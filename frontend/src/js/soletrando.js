@@ -198,7 +198,7 @@ function iniciarRodada() {
     console.warn("Falha ao reproduzir o áudio:", error);
   });
 
-  const cardImagem = document.querySelector(".card-img ");
+  const cardImagem = document.querySelector(".card-img");
   cardImagem.src = palavraAtual.imagem; // Define o caminho da imagem
   cardImagem.alt = `Imagem da palavra ${palavraAtual.palavra}`; // Texto alternativo
 
@@ -347,10 +347,10 @@ if (btnIniciarSoletrando) {
     overlaySoletrando.style.display = "none";
 
     // MOSTRA O CARD AGORA
-    const cardImagem = document.querySelector(".adivinha-container");
-    const imagemPrincipal = document.querySelector(".game-container");
-
+    const cardImagem = document.querySelector(".main-cards-soletrando");
     if (cardImagem) cardImagem.style.display = "block";
+    
+    const imagemPrincipal = document.querySelector(".card-img");
     if (imagemPrincipal) imagemPrincipal.style.display = "block";
 
     // embaralha palavras e inicia
