@@ -80,8 +80,27 @@ tentativasInfo.classList.add("tentativas-info");
 tentativasInfo.style.fontWeight = "600";
 tentativasInfo.style.marginTop = "0.5rem";
 
+// --- BOTÃO FINALIZAR (NOVO) ---
+const botaoFinalizar = document.createElement("button");
+botaoFinalizar.id = "btn-finalizar";
+botaoFinalizar.classList.add("btn-jogos");
+botaoFinalizar.textContent = "Finalizar";
+botaoFinalizar.onclick = () => window.location.reload();
+// deixa oculto até o jogo iniciar
+botaoFinalizar.style.display = "none";
+
+// Wrapper para alinhar lado a lado
+const tentativasWrapper = document.createElement("div");
+tentativasWrapper.style.display = "flex";
+tentativasWrapper.style.alignItems = "center";
+tentativasWrapper.style.gap = "12px";
+tentativasWrapper.style.marginTop = "0.8rem";
+
+tentativasWrapper.append(tentativasInfo, botaoFinalizar);
+
+// coloca tudo no container
 document.body.querySelector(".main").after(container);
-container.append(botoesContainer, tentativasInfo, tentativaTexto);
+container.append(botoesContainer, tentativasWrapper, tentativaTexto);
 
 // usa apenas a imagem que já existe no HTML
 const imagem = document.querySelector(".card-img");
@@ -329,6 +348,10 @@ function reiniciarJogo() {
 
   palavras = todasPalavras.slice(); // repõe todas as palavras originais
   palavras.sort(() => 0.5 - Math.random());
+
+  // mostra o botão de finalizar ao reiniciar/jogar novamente
+  botaoFinalizar.style.display = "inline-flex";
+
   iniciarRodada();
 }
 
@@ -352,6 +375,9 @@ if (btnIniciarSoletrando) {
     
     const imagemPrincipal = document.querySelector(".card-img");
     if (imagemPrincipal) imagemPrincipal.style.display = "block";
+
+    // mostra o botão de finalizar quando o jogo começar
+    botaoFinalizar.style.display = "inline-flex";
 
     // embaralha palavras e inicia
     palavras.sort(() => 0.5 - Math.random());

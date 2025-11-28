@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Apae Jogos</title>
@@ -47,46 +47,53 @@
 
     <div id="start-overlay" class="start-overlay">
       <div class="start-box">
-        <p class="name">Cobrindo Formas</p>
+        <p class="name">Encaixando Formas</p>
         <button id="btn-iniciar" class="btn-jogos">Iniciar</button>
       </div>
     </div>
 
     <div class="encaixeFormas-container">
+      
+      <div class="tabuleiros-wrapper">
         <div class="encaixe" id="encaixe"></div>
         <div class="formas" id="formas"></div>
-        <h1>Erros <span id="tentativas">0</span></h1>
+      </div>
+
+      <div class="info">
+        <button id="btn-finalizar" class="btn-jogos">finalizar</button>
+        <a>Erros: <span id="tentativas"></span></a>
+      </div>
     </div>
 
-      <div class="footer">
-        <ul class="footer-sections">
-          <div class="footer-sections-separation">
-            <a draggable="false" href="../../src/jogos/cobrirTracejado.html">
-              <li class="section NECESSIDADES"><p>Cobrir</p></li>
-            </a>
-            <a draggable="false" href="../../src/jogos/soletrando.html">
-              <li class="section CORES"><p>Soletrando</p></li>
-            </a>
-            <a draggable="false" href="../../src/jogos/adivinhaAnimais.html">
-              <li class="section ANIMAIS"><p>Adivinhação</p></li>
-            </a>
-            <a draggable="false" href="../../src/jogos/memoria.html">
-              <li class="section JOGOS"><p>Memória</p></li>
-            </a>
-            <a draggable="false" href="../../src/jogos/labirinto.html">
-              <li class="section JOGOS"><p>Labirinto</p></li>
-            </a>
-            <a draggable="false" href="../../src/jogos/quebraCabeca.html">
-              <li class="section JOGOS"><p>Quebra Cabeça</p></li>
-            </a>
-            <a draggable="false" href="../../src/jogos/encaixeFormas.html">
-              <li class="section JOGOS"><p>Encaixe Formas</p></li>
-            </a>
-          </div>
-        </ul>
-      </div> <!-- FOOTER -->   
+    <div class="footer">
+      <ul class="footer-sections">
+        <div class="footer-sections-separation">
+          <a draggable="false" href="../../src/jogos/cobrirTracejado.html">
+            <li class="section NECESSIDADES"><p>Cobrir</p></li>
+          </a>
+          <a draggable="false" href="../../src/jogos/soletrando.html">
+            <li class="section CORES"><p>Soletrando</p></li>
+          </a>
+          <a draggable="false" href="../../src/jogos/adivinhaAnimais.html">
+            <li class="section ANIMAIS"><p>Adivinhação</p></li>
+          </a>
+          <a draggable="false" href="../../src/jogos/memoria.html">
+            <li class="section JOGOS"><p>Memória</p></li>
+          </a>
+          <a draggable="false" href="../../src/jogos/labirinto.html">
+            <li class="section JOGOS"><p>Labirinto</p></li>
+          </a>
+          <a draggable="false" href="../../src/jogos/quebraCabeca.html">
+            <li class="section JOGOS"><p>Quebra Cabeça</p></li>
+          </a>
+          <a draggable="false" href="../../src/jogos/encaixeFormas.html">
+            <li class="section JOGOS"><p>Encaixe Formas</p></li>
+          </a>
+        </div>
+      </ul>
+    </div>
+    <!-- FOOTER -->
 
     <script src="../js/encaixeFormas.js"></script>
-
   </body>
 </html>

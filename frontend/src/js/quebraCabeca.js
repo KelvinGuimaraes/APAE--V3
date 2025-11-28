@@ -119,3 +119,12 @@ if (startButton) {
     updateGame();
   });
 }
+
+// === BOTÃO DE FINALIZAR (REINICIA A PÁGINA) ===
+const btnFinalizar = document.getElementById("btn-finalizar");
+
+if (btnFinalizar) {
+    btnFinalizar.addEventListener("click", () => {
+        location.reload(); // reinicia a página
+    });
+}

@@ -388,6 +388,7 @@ button {
   position: fixed;
   width: 100%;
   text-align: center;
+  z-index: 999;
 }
 
 .footer-sections {

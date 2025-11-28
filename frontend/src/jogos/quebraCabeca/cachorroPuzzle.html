@@ -54,8 +54,19 @@
       </div>
 
       <div class="quadro-jogo" id="quadro-jogo"></div>
-      <div class="pecas" id="pecas"></div>
-      <h1>Tentativas <span id="tentativas">0</span></h1>
+
+      <!-- Wrapper para separar a lista de peças e o botão (botão NÃO fica dentro de .pecas) -->
+      <div class="pecas-area">
+        <div class="pecas-header">
+          <button id="btn-finalizar" class="btn-jogos">Finalizar</button>
+        </div>
+        
+        <div class="pecas" id="pecas">
+          <!-- peças serão inseridas aqui -->
+        </div>
+      </div>
+
+      <h1>Tentativas: <span id="tentativas">0</span></h1>
     </div>
 
     <div class="footer">
