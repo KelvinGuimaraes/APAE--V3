@@ -49,6 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
         audioId: "cores_player",
       },
       {
+        selector: ".card.calculadora a", 
+        audioId: "calculadora_player"},
+      {
         selector: ".card.animais a",
         audioId: "animais_player",
       },
@@ -92,6 +95,10 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         audioId: "numeros_player",
         imgClass: ".card.numeros .audio-verde-img",
+      },
+      {
+        audioId: "calculadora_player",
+        imgClass: ".card.calculadora .audio-verde-img",
       },
       {
         audioId: "cores_player",

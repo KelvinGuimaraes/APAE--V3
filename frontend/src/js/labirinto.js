@@ -11,25 +11,31 @@ function rand(max) {
   }
   
   function changeBrightness(factor, sprite) {
-    var virtCanvas = document.createElement("canvas");
-    virtCanvas.width = 500;
-    virtCanvas.height = 500;
-    var context = virtCanvas.getContext("2d");
-    context.drawImage(sprite, 0, 0, 500, 500);
+    try {
+      var virtCanvas = document.createElement("canvas");
+      virtCanvas.width = 500;
+      virtCanvas.height = 500;
+      var context = virtCanvas.getContext("2d");
+      context.drawImage(sprite, 0, 0, 500, 500);
   
-    var imgData = context.getImageData(0, 0, 500, 500);
+      var imgData = context.getImageData(0, 0, 500, 500);
   
-    for (let i = 0; i < imgData.data.length; i += 4) {
-      imgData.data[i] = imgData.data[i] * factor;
-      imgData.data[i + 1] = imgData.data[i + 1] * factor;
-      imgData.data[i + 2] = imgData.data[i + 2] * factor;
+      for (let i = 0; i < imgData.data.length; i += 4) {
+        imgData.data[i] = imgData.data[i] * factor;
+        imgData.data[i + 1] = imgData.data[i + 1] * factor;
+        imgData.data[i + 2] = imgData.data[i + 2] * factor;
+      }
+      context.putImageData(imgData, 0, 0);
+  
+      var spriteOutput = new Image();
+      spriteOutput.src = virtCanvas.toDataURL();
+      virtCanvas.remove();
+      return spriteOutput;
+    } catch (err) {
+      // Se ocorrer erro (canvas tainted por file://), retorna a sprite original para que o jogo continue
+      console.warn("changeBrightness falhou (provável CORS/file://). Usando sprite original.", err);
+      return sprite;
     }
-    context.putImageData(imgData, 0, 0);
-  
-    var spriteOutput = new Image();
-    spriteOutput.src = virtCanvas.toDataURL();
-    virtCanvas.remove();
-    return spriteOutput;
   }
   
   function displayVictoryMess(moves) {
@@ -519,11 +525,13 @@ function rand(max) {
       "../images/labirinto/mouse.png" +
       "?" +
       new Date().getTime();
-    sprite.setAttribute("crossOrigin", " ");
     sprite.onload = function() {
-      sprite = changeBrightness(1.2, sprite);
+      try {
+        sprite = changeBrightness(1.2, sprite);
+      } catch(e) {
+        console.warn("Fallback: não foi possível ajustar brilho do sprite.", e);
+      }
       completeOne = true;
-      console.log(completeOne);
       isComplete();
     };
   
@@ -531,11 +539,13 @@ function rand(max) {
     finishSprite.src = "../images/labirinto/chesse.png" +
     "?" +
     new Date().getTime();
-    finishSprite.setAttribute("crossOrigin", " ");
     finishSprite.onload = function() {
-      finishSprite = changeBrightness(1.1, finishSprite);
+      try {
+        finishSprite = changeBrightness(1.1, finishSprite);
+      } catch(e) {
+        console.warn("Fallback: não foi possível ajustar brilho do finishSprite.", e);
+      }
       completeTwo = true;
-      console.log(completeTwo);
       isComplete();
     };
     
